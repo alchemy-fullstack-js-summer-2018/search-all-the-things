@@ -1,0 +1,19 @@
+{
+  "name": "search-all-the-things",
+  "version": "1.0.0",
+  "description": "",
+  "main": "enzyme.setup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quintam26/search-all-the-things.git"
+  },
+  "author": "Mario Quintana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quintam26/search-all-the-things/issues"
+  },
+  "homepage": "https://github.com/Quintam26/search-all-the-things#readme"
+}
