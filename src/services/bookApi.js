@@ -9,4 +9,5 @@ const get = url => fetch(url)
 export function search(searchTerm) {
 
   return get(`${BASE_URL}?=${searchTerm}`);
+  
 }

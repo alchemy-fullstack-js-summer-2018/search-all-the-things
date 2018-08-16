@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Search from './search/Search';
+import { search } from '../services/bookApi';
 
 class App extends Component {
+  
+  handleSearch = () => {
+    search();
+  };
 
   render() {
     
     return (
       <div>
         <header>
-          <Header/>
+          <Header onSearch={this.handleSearch}/>
         </header>
         <main>
-          <Search/>
+
         </main>
       </div>
     );
