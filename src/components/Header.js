@@ -12,8 +12,8 @@ class Header extends Component {
 
   render() {
     // const { onSearch } this.props;
-    // console.log('*** this', props);
-
+    // console.log('*** this', body);
+    
     return (
       <div className={styles.header}>
       
@@ -23,7 +23,7 @@ class Header extends Component {
         </section>
 
         <section className="search-container">
-          {/* <Search onSearch={onSearch}/> */}
+          {/* {<Search onSearch={onSearch}/>} */}
         </section>
       
       </div>
