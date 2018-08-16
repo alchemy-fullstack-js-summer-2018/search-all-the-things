@@ -7,7 +7,7 @@ class Article extends Component {
   render() {
 
     return(
-      <section>
+      <section className={styles.books}>
         <h4>Book Component</h4>
       </section>
     );

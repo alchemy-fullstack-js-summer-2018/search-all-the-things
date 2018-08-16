@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import styles from './Books.css';
+import PropTypes from 'prop-types';
+import Book from './Book';
 
 class Books extends Component {
+
+  
 
   render() {
 
     return (
-      <section className={styles.books}>
+      <section>
         <h3>Books Component</h3>
       </section>
     );

@@ -7,14 +7,13 @@ const throwJson = json => { throw json; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-/* TODO: test file? */
 export function search({ term/* , page, perPage */ }) {
   console.log('*****SEARCH*********');
   // const bookIndex = (page * perPage) - perPage;
   const search = `&q=${term}`;
   // const paging = `&maxResults=${perPage}&startIndex=${bookIndex}`;
 
-  //TODO: ${paging}
+  //TODO: ${paging} logic
   return get(`${VOLUMES_URL}${search}`);
 }
 

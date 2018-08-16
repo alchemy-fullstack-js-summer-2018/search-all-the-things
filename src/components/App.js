@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Books from './books/Books';
 import styles from './App.css';
-import { search, getBook } from '../services/booksApi';
+import { search } from '../services/booksApi';
 
 class App extends Component {
 
+  state = {
+    data: []
+  }
+
   handleSearch = (term) => {
     console.log(`You searched for ${term.search}`);
-    search(term);
+
+    search(term)
+      .then(results => this.setState({ data: results }));
+    console.log('****AFTER SEARCH*****');
   };
 
   render() {
