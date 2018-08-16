@@ -17,7 +17,7 @@ const article = {
 
 };
 
-describe('Article', () => {
+describe('Single Article test', () => {
     
   it('Renders as designed', () => {
     const wrapper = shallow(<Article article={article}/>);

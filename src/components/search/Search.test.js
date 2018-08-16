@@ -4,7 +4,7 @@ import Search from './Search';
 import toJSON from 'enzyme-to-json';
 
 
-describe('Search', () => {
+describe('Search Test', () => {
     
   it('Renders as designed', () => {
     const wrapper = shallow(<Search onSearch={() => {}}/>);

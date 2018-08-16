@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Renders as designed 1`] = `
+exports[`Search Test Renders as designed 1`] = `
 <form
   className="search-form"
   onSubmit={[Function]}

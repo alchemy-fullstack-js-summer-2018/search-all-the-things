@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Article Renders as designed 1`] = `
+exports[`Single Article test Renders as designed 1`] = `
 <li>
   <h2>
     2018 FORD MUSTANG COBRA JET FIRST LOOK: ONE FAST PONY
@@ -27,7 +27,7 @@ exports[`Article Renders as designed 1`] = `
 </li>
 `;
 
-exports[`Article Renders without image 1`] = `
+exports[`Single Article test Renders without image 1`] = `
 <li>
   <h2>
     2018 FORD MUSTANG COBRA JET FIRST LOOK: ONE FAST PONY
