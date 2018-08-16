@@ -5,11 +5,11 @@ import Movies from './movies/Movies';
 
 class App extends Component {
   state = {
-    data: ''
+    data: []
   };
 
-  handleSearch = () => {
-    search()
+  handleSearch = term => {
+    search(term)
       .then(results => {
         this.setState({ data: results });
       });
@@ -22,7 +22,7 @@ class App extends Component {
           <Header onSearch={this.handleSearch}/>
         </header>
         <main>
-          {this.state.data && <Movies movies={this.data}/>}
+          {this.state.data && <Movies movies={this.state.data}/>}
         </main>
       </div>
     );
