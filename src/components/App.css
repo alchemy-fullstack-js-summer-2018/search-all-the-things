@@ -1,0 +1,12 @@
+:local(.app) {
+
+  header {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  main {
+    background: steelblue;
+
+  }
+}
