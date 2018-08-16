@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './Search.css';
 
 export default class Search extends Component {
 
     state = {
       search: ''
+    };
+
+    static propTypes = {
+      onSearch: PropTypes.func.isRequired
+    };
+
+    handleChange = ({ target }) => {
+      this.setState({ search: target.value });
+    };
+
+    handleSubmit = event => {
+      event.preventDefault();
+      this.props.onSearch(this.state);
     };
 
     render() {
