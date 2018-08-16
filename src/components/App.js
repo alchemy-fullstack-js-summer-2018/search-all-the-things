@@ -8,14 +8,14 @@ class App extends Component {
     list: null,
   };
 
-  handleSearch = (query) => {
-    search(query)
-      .then(results => {
-        this.setState({
-          list: results
-        });
-      });
-  };
+  // handleSearch = (query) => {
+  //   search(query)
+  //     .then(results => {
+  //       this.setState({
+  //         list: results
+  //       });
+  //     });
+  // };
 
   render() {
 
