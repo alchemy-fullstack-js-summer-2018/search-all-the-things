@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Books from './books/Books';
 import styles from './App.css';
 
 class App extends Component {
@@ -17,6 +18,10 @@ class App extends Component {
         <header>
           <Header onSearch={this.handleSearch}/>
         </header>
+
+        <section>
+          <Books />
+        </section>
       </main>
     );
   }
