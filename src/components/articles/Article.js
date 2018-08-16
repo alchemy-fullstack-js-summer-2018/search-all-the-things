@@ -19,7 +19,7 @@ export default class Article extends Component {
           <a href={url} 
             target="_blank" 
             rel="noopener noreferrer">
-						view article
+                view article
           </a>
           <p>{description}</p>
           <img src={urlToImage}/>

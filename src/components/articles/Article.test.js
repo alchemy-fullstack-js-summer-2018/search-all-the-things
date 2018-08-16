@@ -24,4 +24,10 @@ describe('Article', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 
+  it('Renders without image', () => {
+    const noImageArticle = { ...article, urlToImage: null };
+    const wrapper = shallow(<Article article={noImageArticle}/>);
+    expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
 });
