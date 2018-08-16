@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Books from './books/Books';
 import styles from './App.css';
+import { search, getBook } from '../services/booksApi';
 
 class App extends Component {
 
   handleSearch = (term) => {
     console.log(`You searched for ${term.search}`);
-
+    search(term);
   };
 
   render() {
