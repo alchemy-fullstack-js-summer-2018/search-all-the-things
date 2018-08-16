@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article renders as designed 1`] = `
+<li>
+  <h2>
+    Trash or Treasure: Hiwatt DR103
+     by 
+    Zachary Fjestad
+     on 
+    2018-08-15T21:00:04Z
+  </h2>
+  <a
+    href="https://www.premierguitar.com/articles/19521-trash-or-treasure-hiwatt-dr103"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    view article
+  </a>
+  <p>
+    With their military-spec chassis, point-to-point wiring, and marine-grade cabinets, Hiwatt amps are known for being built like tanks.
+  </p>
+  <img
+    src="https://www.premierguitar.com/ext/resources/images/content/2103_08/Blogs/Oct13_PG_CLM_TrashorTreasure_Hiwatt-Custom-100-Front_630_WEB.png"
+  />
+</li>
+`;
