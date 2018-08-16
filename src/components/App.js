@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Articles from './articles/Articles';
 import styles from './App.css';
 import { search } from '../services/newsApi';
 
@@ -27,8 +28,8 @@ class App extends Component {
           <Header onSearch={this.handleSearch} />
         </header>
         <main>
-
-
+          <Articles />
+         
         </main>
       </div>
     );
