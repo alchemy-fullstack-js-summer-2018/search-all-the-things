@@ -3,8 +3,18 @@ import styles from './App.css';
 
 class App extends Component {
 
-  handleSearch = () => {
+  state = {
+    query: null,
+    list: null,
+  };
 
+  handleSearch = (query) => {
+    search(query)
+      .then(results => {
+        this.setState({
+          list: results
+        });
+      });
   };
 
   render() {
