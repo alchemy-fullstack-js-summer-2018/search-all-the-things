@@ -15,7 +15,7 @@ class Search extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefauilt();
+    event.preventDefault();
     this.props.onSearch(this.state);
   };
 
