@@ -9,10 +9,14 @@ class Header extends Component {
     onSearch: PropTypes.func.isRequired
   };
 
+  onSearch = term => {
+    this.props.onSearch(term);
+  };
+
   render() {
 
     const { onSearch } = this.props;
-    
+
     return (
       <div className={styles.header}>
         <section className="header-container">

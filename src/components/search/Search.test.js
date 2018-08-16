@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import Search from './Search';
 import toJSON from 'enzyme-to-json';
 
@@ -18,6 +18,11 @@ describe('Search', () => {
 
     const calls = handleSearch.mock.calls;
     expect(calls.length).toBe(1);
-    expect(calls[0][0].search).toBe(search);
+    expect(calls[0][0]).toEqual({ search });
+  });
+
+  it('renders as expected', () => {
+    const wrapper = shallow(<Search onSearch={() => {}}/>);
+    expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

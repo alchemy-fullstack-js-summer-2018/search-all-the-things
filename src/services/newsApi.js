@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const API_KEY = '00dd88bf5a1948f9b1ba74c1955997ad';
 const API_QUERY = `apiKey=${API_KEY}`;
 const BASE_URL = 'https://newsapi.org/v2';
