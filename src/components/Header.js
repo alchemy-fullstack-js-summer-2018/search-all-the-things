@@ -21,7 +21,7 @@ class Header extends Component {
           <Search onSearch={onSearch}/>
         </section>
       </div>
-    )
+    );
   }
 }
 

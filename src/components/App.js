@@ -18,7 +18,7 @@ class App extends Component {
           <Header onSearch={this.handleSearch}/>
         </header>
       </main>
-    )
+    );
   }
 }
 

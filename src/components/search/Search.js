@@ -13,7 +13,7 @@ class Search extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ search: target.value })
+    this.setState({ search: target.value });
   };
 
   handleSubmit = event => {

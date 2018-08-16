@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "jest",
+    "test": "npm run jest",
+    "jest": "jest",
     "test:watch": "npm run test -- --watch",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --hot --open --mode development"
