@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import styles from './App.css'
+import styles from './App.css';
 
 class App extends Component {
 
-  handleSearch = () => {
-    console.log('You searched for something');
+  handleSearch = (term) => {
+    console.log(`You searched for ${term.search}`);
+
   };
 
   render() {

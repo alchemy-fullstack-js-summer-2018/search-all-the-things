@@ -27,7 +27,7 @@ class Search extends Component {
     return (
       <div className={styles.search}>
         <h3>Search Component</h3>
-        <form onSubmit={event => this.handleSubmit(event)}>
+        <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
           <label>
             Search For:&nbsp;
             <input value={search} onChange={this.handleChange}/>
