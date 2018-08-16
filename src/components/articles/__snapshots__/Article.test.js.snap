@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Renders as designed 1`] = `
+<li>
+  <h2>
+    2018 FORD MUSTANG COBRA JET FIRST LOOK: ONE FAST PONY
+     by 
+    Alisa Priddle 
+     on 
+    2018-08-15T21:00:04Z
+  </h2>
+  <a
+    href="https://www.motortrend.com/cars/ford/mustang/2018/2018-ford-mustang-cobra-jet-first-look-review/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    view article
+  </a>
+  <p>
+    Only 68 of the $130,000 race cars will be made
+  </p>
+  <img
+    src="http://fordauthority.com/wp-content/uploads/2015/12/Ford-Mustang-Cobra-Jet-for-sale-720x340.jpg"
+  />
+</li>
+`;
