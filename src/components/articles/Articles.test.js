@@ -7,7 +7,7 @@ const articles = [{}, {}, {}];
 
 describe('Articles test', () => {
     
-  it('Renders as designed', () => {
+  it('Articles renders as designed', () => {
     const wrapper = shallow(<Articles articles={articles}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });

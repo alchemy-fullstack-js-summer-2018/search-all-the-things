@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Articles test Renders as designed 1`] = `
+exports[`Articles test Articles renders as designed 1`] = `
 <ul>
   <Article
     article={Object {}}
