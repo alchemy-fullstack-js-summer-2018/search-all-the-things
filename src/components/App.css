@@ -1,0 +1,6 @@
+:local(.app) {
+    header {
+      background-color: aqua;
+      text-align: center;
+    }
+}
