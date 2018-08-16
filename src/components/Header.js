@@ -12,6 +12,7 @@ class Header extends Component {
   render() {
 
     const { onSearch } = this.props;
+    
     return (
       <div className={styles.header}>
         <section className="header-container">

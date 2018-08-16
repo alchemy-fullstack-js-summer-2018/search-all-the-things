@@ -3,13 +3,17 @@ import Header from './Header';
 import styles from './App.css';
 
 class App extends Component {
+
+  handleSearch = () => {
+    
+  };
   
   render() {
     return (
       <div className={styles.app}>
         <header>
           It is alive!
-          <Header/>
+          <Header onSearch={this.handleSearch}/>
         </header>
       </div>
     );
