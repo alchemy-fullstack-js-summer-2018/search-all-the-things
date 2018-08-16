@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Search from './search/Search';
+// import Search from './search/Search';
 import logo from '../assets/logo.png';
 import styles from './Header.css';
 
@@ -11,8 +11,8 @@ class Header extends Component {
   };
 
   render() {
-    const { onSearch } this.props;
-    console.log('*** this', props);
+    // const { onSearch } this.props;
+    // console.log('*** this', props);
 
     return (
       <div className={styles.header}>
@@ -23,11 +23,11 @@ class Header extends Component {
         </section>
 
         <section className="search-container">
-          <Search onSearch={onSearch}/>
+          {/* <Search onSearch={onSearch}/> */}
         </section>
       
       </div>
-    )
+    );
   }
 }
 

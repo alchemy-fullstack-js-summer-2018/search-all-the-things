@@ -12,6 +12,7 @@ class App extends Component {
 
     return (
       <div className={styles.app}>
+        <h1>Hello World!</h1>
         <header>
           <Header onSearch={this.handleSearch}/>
         </header>
