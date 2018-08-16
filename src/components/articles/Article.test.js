@@ -13,7 +13,7 @@ const article = {
   'description': 'Only 68 of the $130,000 race cars will be made',
   'url': 'https://www.motortrend.com/cars/ford/mustang/2018/2018-ford-mustang-cobra-jet-first-look-review/',
   'urlToImage': 'http://fordauthority.com/wp-content/uploads/2015/12/Ford-Mustang-Cobra-Jet-for-sale-720x340.jpg',
-  'publishedAt': '8/15/2018, 2:00:04 PM'
+  'publishedAt': '2018-08-15T21:00:04Z'
 
 };
 
