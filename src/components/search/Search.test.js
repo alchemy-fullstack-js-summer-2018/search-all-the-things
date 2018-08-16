@@ -25,7 +25,7 @@ describe('Search', () => {
   });
 
   it('renders as designed', () => {
-    const wrapper = shallow(<Search onSearch={() => {}}/>)
+    const wrapper = shallow(<Search onSearch={() => {}}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 
