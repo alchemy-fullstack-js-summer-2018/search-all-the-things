@@ -4,11 +4,13 @@ exports[`Article Renders as designed 1`] = `
 <li>
   <h2>
     2018 FORD MUSTANG COBRA JET FIRST LOOK: ONE FAST PONY
-     by 
+  </h2>
+  <p>
+    by 
     Alisa Priddle 
      on 
-    2018-08-15T21:00:04Z
-  </h2>
+    8/15/2018, 2:00:04 PM
+  </p>
   <a
     href="https://www.motortrend.com/cars/ford/mustang/2018/2018-ford-mustang-cobra-jet-first-look-review/"
     rel="noopener noreferrer"
