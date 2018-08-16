@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import Header from './Header';
 
 class App extends Component {
+  handleSearch = () => {
+    
+  };
+  
   render() {
     return (
       <div>
         <header>
-          <Header/>
+          <Header onSearch={this.handleSearch}/>
         </header>
       </div>
     );
