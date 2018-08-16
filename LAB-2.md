@@ -51,6 +51,7 @@ Goal is to enhance the prior lab:
     1. Add the ability to favorite detail item
         1. Use Firebase to save enough information to show a summary and link to detail view
     1. Add the ability to unfavor an item
+1. BONUS GOAL: Add favorite/unfavorite ability in the search results list view as well
 1. Add a Favorites page (served at `/favorites`) that shows the list of favorites that link to the detail view
 1. Add a Home page (served at `/`) and create some static content
 1. Polish your HTML/CSS
