@@ -17,6 +17,10 @@ export default class Search extends Component {
     this.props.onSearch(this.state);
   };
 
+  handleChangeSearch = ({ target }) => {
+    this.setState({ search: target.value });
+  };
+
   render() {
     const { search } = this.state;
 
@@ -24,7 +28,7 @@ export default class Search extends Component {
       <form className="search-form" onSubmit={event=> this.handleSubmit(event)}>
         <label>
           Search for:&nbsp;
-          <input value={search} onChange={this.handleChange}/>
+          <input value={search} onChange={this.handleChangeSearch}/>
         </label>
         <button>Search</button>
       </form>

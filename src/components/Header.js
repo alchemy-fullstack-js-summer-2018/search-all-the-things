@@ -12,7 +12,6 @@ class Header extends Component {
 
   render() {
     const { onSearch } = this.props;
-    // console.log('*** this', body);
     
     return (
       <div className={styles.header}>
