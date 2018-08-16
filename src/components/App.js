@@ -21,7 +21,9 @@ class App extends Component {
     searchNews() {
       const { search } = this.state;
       searchNews({ search })
-        .then(results => console.log(results));
+        .then(({ articles, totalResults }) => {
+          this.setState({ articles, totalResults });
+        });
     }
 
     render() {
