@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from './search/Search';
 import styles from './Header.css';
 
 class Header extends Component {
@@ -10,6 +11,9 @@ class Header extends Component {
 
         <h1>Header Component</h1>
 
+        <section>
+          <Search />
+        </section>
       </div>
     )
   }
