@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import styles from './App.css';
+import { search } from '../services/newsApi';
 
 class App extends Component {
 
-  handleSearch = () => {
+  state = {
+    query: null,
+    results: null,
+  };
 
+  handleSearch = (query) => {
+    search(query)
+      .then(results => {
+        this.setState({
+          results: results
+        });
+      });
   };
 
   render() {

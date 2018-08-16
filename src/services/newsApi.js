@@ -11,5 +11,12 @@ const get = url => fetch(url)
 
 export function search({ topic, sources = ['bad'] }, { page = 1, pageSize = 20 }) {
   const search = `&q=${topic}&sources=${sources.join()}`;
-  
+  const paging = `&page=${page}&pageSize=${pageSize}`;
+  const sort = `&${SORT_QUERY}`;
+
+  return get(`${EVERYTHING_URL}${search}${paging}${sort}`);
+}
+
+export function getSources() {
+  return get(SOURCES_URL).then(r => r.sources);
 }
