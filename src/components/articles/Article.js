@@ -15,7 +15,7 @@ export default class Article extends Component {
       return (
         <li>
           <h2>{title}</h2> 
-          <p>by {author} on {new Date(publishedAt).toLocaleString()}</p>
+          <p>by {author} on {publishedAt}</p>
           <a href={url} 
             target="_blank" 
             rel="noopener noreferrer">

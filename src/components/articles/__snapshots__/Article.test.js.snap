@@ -9,7 +9,7 @@ exports[`Single Article test Renders as designed 1`] = `
     by 
     Alisa Priddle 
      on 
-    8/15/2018, 2:00:04 PM
+    2018-08-15T21:00:04Z
   </p>
   <a
     href="https://www.motortrend.com/cars/ford/mustang/2018/2018-ford-mustang-cobra-jet-first-look-review/"
@@ -36,7 +36,7 @@ exports[`Single Article test Renders without image 1`] = `
     by 
     Alisa Priddle 
      on 
-    8/15/2018, 2:00:04 PM
+    2018-08-15T21:00:04Z
   </p>
   <a
     href="https://www.motortrend.com/cars/ford/mustang/2018/2018-ford-mustang-cobra-jet-first-look-review/"
