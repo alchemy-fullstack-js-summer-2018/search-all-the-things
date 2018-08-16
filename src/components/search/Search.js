@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './Search.css';
 
 class Search extends Component {
 
   state = {
     search: ''
+  };
+
+  static propTypes = {
+    onSearch: PropTypes.func.isRequired
   };
 
   handleChange = ({ target }) => {
