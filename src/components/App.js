@@ -3,9 +3,15 @@ import Header from './Header';
 import { search } from '../services/bookApi';
 
 class App extends Component {
+  state = {
+    data: ''
+  };
   
   handleSearch = () => {
-    search();
+    search()
+      .then(results => {
+        this.setState({ data: results });
+      });
   };
 
   render() {

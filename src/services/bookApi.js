@@ -7,7 +7,8 @@ const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
 export function search(searchTerm) {
+  const SEARCH = `?q=${searchTerm}`;
 
-  return get(`${BASE_URL}?=${searchTerm}`);
-  
+  return get(`${BASE_URL}${SEARCH}`);
+
 }
