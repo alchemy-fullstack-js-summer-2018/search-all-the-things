@@ -8,7 +8,7 @@ class App extends Component {
 
   state = {
     data: []
-  }
+  };
 
   handleSearch = (term) => {
     console.log(`You searched for ${term.search}`);
