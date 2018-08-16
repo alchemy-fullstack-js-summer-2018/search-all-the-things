@@ -6,25 +6,25 @@ import styles from './Header.css';
 
 class Header extends Component {
     static propTypes = {
-        onSearch: PropTypes.func.isRequired
+      onSearch: PropTypes.func.isRequired
     };
 
     render() {
-        const { onSearch } = this.props;
+      const { onSearch } = this.props;
 
-        return (
-            <div className={styles.header}>
+      return (
+        <div className={styles.header}>
 
-                <section className="header-container">
-                    {/* <img src={logo}/> */}
-                    <h1>News Search</h1>
-                </section>
+          <section className="header-container">
+            {/* <img src={logo}/> */}
+            <h1>News Search</h1>
+          </section>
 
-                <section className="search-container">
-                    <Search onSearch={onSearch}/>
-                </section>
-            </div>
-        );
+          <section className="search-container">
+            <Search onSearch={onSearch}/>
+          </section>
+        </div>
+      );
     }
 
 }

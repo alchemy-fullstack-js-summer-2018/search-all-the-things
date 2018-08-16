@@ -7,16 +7,16 @@ const SORT_QUERY = 'sortBy=publishedAt';
 
 const throwJson = json => { throw json; };
 const get = url => fetch(url)
-.then(r => r.ok ? r.json() : r.json().then(throwJson));
+  .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
 export function search({ topic, sources = ['bad'] }, { page = 1, pageSize = 20 }) {
-const search = `&q=${topic}&sources=${sources.join()}`;
-const paging = `&page=${page}&pageSize=${pageSize}`;
-const sort = `&${SORT_QUERY}`;
+  const search = `&q=${topic}&sources=${sources.join()}`;
+  const paging = `&page=${page}&pageSize=${pageSize}`;
+  const sort = `&${SORT_QUERY}`;
 
-return get(`${EVERYTHING_URL}${search}${paging}${sort}`);
+  return get(`${EVERYTHING_URL}${search}${paging}${sort}`);
 }
 
 export function getSources() {
-return get(SOURCES_URL).then(r => r.sources);
+  return get(SOURCES_URL).then(r => r.sources);
 }

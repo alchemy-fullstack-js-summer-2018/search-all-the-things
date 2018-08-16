@@ -9,17 +9,17 @@ class App extends Component {
     };
 
     render() {
-        return (
-            <div className={styles.app}>
-                <header>
-                    <Header onSearch={this.handleSearch}/>
-                </header>
-                <main>
+      return (
+        <div className={styles.app}>
+          <header>
+            <Header onSearch={this.handleSearch}/>
+          </header>
+          <main>
 
-                </main>
+          </main>
 
-            </div>
-        );
+        </div>
+      );
     }
 }
 
