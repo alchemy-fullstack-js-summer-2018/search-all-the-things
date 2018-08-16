@@ -13,7 +13,7 @@ class App extends Component {
 
     return (
       <main className={styles.app}>
-        <h1>Hello World</h1>
+        <h1>Alchemy Code Lab Library</h1>
         <header>
           <Header onSearch={this.handleSearch}/>
         </header>
