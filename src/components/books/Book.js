@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Books.css';
 
 class Article extends Component {
 
+  static propTypes = {
+    book: PropTypes.object.isRequired
+  };
+
   render() {
+    const { book } = this.props;
+    const { title, authors } = book.volumeinfo;
 
     return(
-      <section className={styles.books}>
-        <h4>Book Component</h4>
-      </section>
+      <li>
+        <h4>Your Book:</h4>
+        <p>{title}</p>
+        <p>{authors}</p>
+      </li>
     );
   }
 }
