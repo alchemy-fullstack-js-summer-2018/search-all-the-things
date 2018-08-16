@@ -6,9 +6,9 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "npm run jest",
-    "jest": "jest",
-    "test:watch": "npm run jest -- --watch",
+    // "test": "npm run jest",
+    // "jest": "jest",
+    // "test:watch": "npm run jest -- --watch",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --hot --open --mode development"
   },
