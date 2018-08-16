@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import styles from './App.css';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className={styles.app}>
         <header>
           It is alive!
+          <Header/>
         </header>
       </div>
     );
