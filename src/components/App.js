@@ -7,14 +7,14 @@ class App extends Component {
 
   state = {
     query: null,
-    results: null,
+    list: null,
   };
 
   handleSearch = (query) => {
     search(query)
       .then(results => {
         this.setState({
-          results: results
+          list: results
         });
       });
   };
