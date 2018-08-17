@@ -42,13 +42,13 @@ class Results extends Component {
       return search;
     }
 
-    // searchNews() {
-    //   this.setState({
-    //     loading: true,
-    //     error: null
-    //   });
+    searchNews() {
+      this.setState({
+        loading: true,
+        error: null
+      });
 
-      search()
+      search() 
         .then(({ results }) => {
           this.setState({
             movies: results

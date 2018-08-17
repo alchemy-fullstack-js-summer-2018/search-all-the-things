@@ -4,10 +4,6 @@ const API_QUERY = `apikey=${API_KEY}`;
 const BASE_URL = 'https://www.omdbapi.com';
 const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`;
 
-const throwJson = json => { throw json; };
-const get = url => fetch(url)
-  .then(r => r.ok ? r.json() : r.json().then(throwJson));
-
 const getUrl = url => {
   const json = window.localStorage.getItem(url);
   if(json) {
@@ -31,6 +27,6 @@ export function search({ search }, { page = 1 } = {}) {
 
 export function getMovies(id) {
   if(id) {
-    return getUrl(`${EVERYTHING_URL}&i=${id}`)
+    return getUrl(`${EVERYTHING_URL}&i=${id}`);
   }
 }
