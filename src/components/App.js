@@ -4,11 +4,18 @@ import styles from './App.css';
 
 class App extends Component {
 
-  // handleSearch = () => {
-  //   console.log('what are you looking for?');
-  // };
+  handleSearch = search => {
+    this.setState({
+      ...search,
+      page: 1
+    }, () => {
+      this.searchWords();
+    });
+  };
 
   render() {
+    const { words, search, loading, error } = this.state;
+    const { page, perPage, totalResults } = this.state;
     
     return (
       <div className={styles.app}>
@@ -18,6 +25,11 @@ class App extends Component {
       
         <main>
           <h2>do u see me? please see me yo.</h2>
+          {(loading || error) &&
+          <section className="notifications">
+            {loading && <div>Loading...</div>}
+            {error && <div>{error}</div>}
+          </section>}
         
         </main>
       </div>
