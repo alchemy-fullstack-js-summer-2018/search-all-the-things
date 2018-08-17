@@ -28,7 +28,7 @@ class App extends Component {
         </header>
 
         <section>
-          <Books />
+          <Books books={this.state.data.items}/>
         </section>
       </main>
     );
