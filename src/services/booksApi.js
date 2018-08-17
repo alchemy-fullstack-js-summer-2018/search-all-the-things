@@ -4,8 +4,21 @@ const VOLUMES_URL = `${BASE_URL}/volumes?`;
 const BOOK_URL = `${BASE_URL}/volumes`;
 
 const throwJson = json => { throw json; };
-const get = url => fetch(url)
-  .then(r => r.ok ? r.json() : r.json().then(throwJson));
+
+const get = url => {
+  const json = window.localStorage.getItem(url);
+  if(json) {
+    const response = JSON.parse(json);
+    return Promise.resolve(response);
+  }
+
+  return fetch(url)
+    .then(r => r.ok ? r.json() : r.json().then(throwJson))
+    .then(response => {
+      window.localStorage.setItem(url, JSON.stringify(response));
+      return response;
+    });
+};
 
 export function search(term, page, perPage) {
   console.log('*****SEARCH*********', term);
