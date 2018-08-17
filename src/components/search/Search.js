@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './Search.css';
 
 export default class Search extends Component {
@@ -8,9 +8,9 @@ export default class Search extends Component {
     search: ''
   };
 
-  // static propTypes = {
-  //   onSearch: PropTypes.func.isRequired
-  // };
+  static propTypes = {
+    onSearch: PropTypes.func.isRequired
+  };
 
   handleChange = ({ target }) => {
     this.setState({ search: target.value });

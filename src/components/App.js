@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Header from './Header';
 import Home from './home/Home';
 // import Results from './albums/Results';
-import AlbumDetail from './albums/AlbumDetail';
+// import AlbumDetail from './albums/AlbumDetail';
 import Favorites from './favorites/Favorites';
 import styles from './App.css';
 
@@ -24,7 +24,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route exact path="/favorites" component={Favorites}/>
               {/* <Route exact path="/albums" component={Results}/> */}
-              <Route exact path="/albums/:id" component={AlbumDetail}/>
+              {/* <Route exact path="/albums/:id" component={AlbumDetail}/> */}
               <Redirect to="/"/>
             </Switch>
           </main>
