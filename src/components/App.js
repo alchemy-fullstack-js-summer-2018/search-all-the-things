@@ -11,14 +11,18 @@ class App extends Component {
     data: null,
     search: null,
     page: 1,
-    perPage: 20
+    perPage: 20,
+    totalItems: 0
   };
 
   handleSearch = (term) => {
     this.setState({ search: term.search });
     console.log(`You searched for ${term.search}`);
     searchBooks(term, this.state.page, this.state.perPage)
-      .then(results => this.setState({ data: results }));
+      .then(results => {
+        this.setState({ data: results })
+        this.setState({ totalItems: results.totalItems });
+      });
     console.log('****AFTER SEARCH*****');
   };
 
@@ -30,7 +34,7 @@ class App extends Component {
   };
 
   render() {
-    const { data, search, page, perPage } = this.state;
+    const { data, search, page, perPage, totalItems } = this.state;
 
     return (
       <main className={styles.app}>
@@ -48,7 +52,7 @@ class App extends Component {
             <Paging 
               page={page}
               perPage={perPage}
-              totalResults={data.totalItems}
+              totalResults={totalItems}
               onPage={this.handlePage}
             />
           </Fragment>  

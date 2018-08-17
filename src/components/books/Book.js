@@ -9,15 +9,16 @@ class Article extends Component {
 
   render() {
     const { book } = this.props;
-    // if(!book) return null;
-    // const { title, authors } = book;
 
     return (
       <li>
         <h4>Your Book:</h4>
         <p>{book.volumeInfo.title}</p>
         <p>{book.volumeInfo.authors}</p>
-        <img src={book.volumeInfo.imageLinks.thumbnail}/>
+        {book.volumeInfo.imageLinks 
+          ? <img src={book.volumeInfo.imageLinks.thumbnail}/>
+          : <p>No image was provided</p>
+        }
       </li>
     );
   }

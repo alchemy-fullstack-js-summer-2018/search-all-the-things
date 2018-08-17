@@ -21,6 +21,7 @@ class Paging extends Component {
     if(!totalResults) return <div>No results found, try another search</div>;
 
     const totalPages = Math.ceil(totalResults / perPage);
+    
     return (
       <div>
         <h4>Paging Component</h4>
