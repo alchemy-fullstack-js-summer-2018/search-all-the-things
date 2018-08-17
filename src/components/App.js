@@ -1,41 +1,37 @@
 import React, { Component } from 'react';
+// import Albums from './albums/Albums';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
-import Articles from './articles/Articles';
+import Home from './home/Home';
+// import Results from './albums/Results';
+import AlbumDetail from './albums/AlbumDetail';
+import Favorites from './favorites/Favorites';
 import styles from './App.css';
-import { search } from '../services/newsApi';
 
 class App extends Component {
-
-  state = {
-    query: null,
-    list: null,
-  };
-
-  handleSearch = (query) => {
-    search(query)
-      .then(results => {
-        this.setState({
-          list: results
-        });
-      });
-  };
 
   render() {
 
     return (
-      <div className={styles.app}>
-        <header>
-          <Header onSearch={this.handleSearch} />
-        </header>
-        <main>
-          <Articles />
-         
-        </main>
-      </div>
+      <Router>
+        <div className={styles.app}>
+          <header>
+            <Header onSearch={this.handleSearch}/>
+          </header>
+
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/favorites" component={Favorites}/>
+              {/* <Route exact path="/albums" component={Results}/> */}
+              <Route exact path="/albums/:id" component={AlbumDetail}/>
+              <Redirect to="/"/>
+            </Switch>
+          </main>
+        </div>
+      </Router>
     );
-
   }
-
 }
 
 export default App;
