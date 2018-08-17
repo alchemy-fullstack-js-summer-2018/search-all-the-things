@@ -8,7 +8,7 @@ class App extends Component {
 
     state = {
       search: null,
-      articles: null,
+      Search: null,
       totalResults: 0
     };
 
@@ -21,22 +21,22 @@ class App extends Component {
     searchNews() {
       const { search } = this.state;
       searchNews({ search })
-        .then(({ articles, totalResults }) => {
-          this.setState({ articles, totalResults });
+        .then(({ Search, totalResults }) => {
+          this.setState({ Search, totalResults });
         });
     }
 
     render() {
 
-      const { articles } = this.state;
+      const { Search } = this.state;
       return (
         <div className={styles.app}>
           <header>
             <Header onSearch={this.handleSearch}/>
           </header>
           <main>
-            { articles 
-              ? <Articles articles={articles}/>
+            { Search 
+              ? <Articles articles={Search}/>
               : <p>Enter a Search</p>
             }
           </main>
