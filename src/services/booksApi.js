@@ -7,18 +7,22 @@ const throwJson = json => { throw json; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-export function search({ term/* , page, perPage */ }) {
-  console.log('*****SEARCH*********');
+export function search( term/* , page, perPage */ ) {
+  console.log('*****SEARCH*********', term);
   // const bookIndex = (page * perPage) - perPage;
-  const search = `&q=${term}`;
+  const search = `&q=${term.search}`;
   // const paging = `&maxResults=${perPage}&startIndex=${bookIndex}`;
 
   //TODO: ${paging} logic
+  console.log('*****GET******', `${VOLUMES_URL}${search}`);
   return get(`${VOLUMES_URL}${search}`);
 }
 
 export function getBook(volumeId) {
-  console.log('*****getBook********');
+  console.log('*****getBook********', volumeId);
   return get(`${BOOK_URL}/${volumeId}`)
-    .then(r => r.books);
+    .then(r => {
+      console.log('*****URL*****', `${BOOK_URL}/${volumeId}`);
+      r.books;
+    });
 }
