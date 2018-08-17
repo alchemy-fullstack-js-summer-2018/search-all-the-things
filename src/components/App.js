@@ -3,7 +3,6 @@ import { search as searchNews } from '../services/newsApi';
 import Header from './Header';
 import Articles from './articles/Articles';
 import styles from './App.css';
-import Paging from '../components/paging/Paging';
 
 class App extends Component {
 
@@ -28,9 +27,6 @@ class App extends Component {
     }
 
     render() {
-
-      const { page, perPage, totalResults } = this.state;
-      const { searchTerm } = this;
       const { Search } = this.state;
       return (
         <div className={styles.app}>
@@ -42,13 +38,6 @@ class App extends Component {
               ? <Articles articles={Search}/>
               : <p>Enter a Search</p>
             }
-            <p>Searching for &quot;{searchTerm}&quot;</p>
-            <Paging 
-              page={page}
-              perPage={perPage}
-              totalResults={totalResults}
-              onPage={this.handlePage}
-            />
           </main>
     
         </div>
