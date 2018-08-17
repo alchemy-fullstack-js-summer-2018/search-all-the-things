@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-// import qs from 'query-string';
+import qs from 'query-string';
 import Articles from './Articles';
 import Paging from '../paging/Paging';
-// import { search as searchNews } from '../../services/newsApi';
+import { search } from '../../services/newsApi';
 
 class Results extends Component {
 
@@ -19,6 +19,49 @@ class Results extends Component {
     static propTypes = {
       location: PropTypes.object.isRequired
     };
+
+    componentDidMount() {
+      this.searchNews();
+    }
+
+    componentDidUpdate({ location }) {
+      const { search: oldSearch } = qs.parse(location.search);
+      if(oldSearch === this.searchTerm) return;
+      this.searchNews();
+    }
+
+    handlePage = paging => {
+      this.setState(paging, () => {
+        this.searchNews();
+      });
+    };
+
+    get searchTerm() {
+      const { location } = this.props;
+      const { search } = qs.parse(location.search);
+      return search;
+    }
+
+    // searchNews() {
+    //   this.setState({
+    //     loading: true,
+    //     error: null
+    //   });
+
+      search()
+        .then(({ results }) => {
+          this.setState({
+            movies: results
+          });
+        },
+        err => {
+          this.setState({ error: err.message });
+        }
+        )
+        .then(() => {
+          this.setState({ loading: false });
+        });
+    }
 
     render() {
 

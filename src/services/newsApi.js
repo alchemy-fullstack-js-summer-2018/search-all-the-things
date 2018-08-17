@@ -1,3 +1,4 @@
+import { get } from './request';
 const API_KEY = '2156e816';
 const API_QUERY = `apikey=${API_KEY}`;
 const BASE_URL = 'https://www.omdbapi.com';
@@ -7,9 +8,29 @@ const throwJson = json => { throw json; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
+const getUrl = url => {
+  const json = window.localStorage.getItem(url);
+  if(json) {
+    const response = JSON.parse(json);
+    return Promise.resolve(response);
+  }
+
+  return get(url)
+    .then(response => {
+      window.localStorage.setItem(url, JSON.stringify(response));
+      return response;
+    });
+};
+
 export function search({ search }, { page = 1 } = {}) {
   const searchTerm = `&s=${search}`;
   const paging = `&page=${page}`;
 
   return get(`${EVERYTHING_URL}${searchTerm}${paging}`);
+}
+
+export function getMovies(id) {
+  if(id) {
+    return getUrl(`${EVERYTHING_URL}&i=${id}`)
+  }
 }
