@@ -9,20 +9,12 @@ export default class Article extends Component {
 
     render() {
       const { article } = this.props;
-      const { title, author, description } = article;
-      const { publishedAt, url, urlToImage } = article;
+      const { Title, Year, Poster } = article;
 
       return (
         <li>
-          <h2>{title}</h2> 
-          <p>by {author} on {publishedAt}</p>
-          <a href={url} 
-            target="_blank" 
-            rel="noopener noreferrer">
-                view article
-          </a>
-          <p>{description}</p>
-          <img src={urlToImage}/>
+          <h2><strong>{Title}</strong> ({Year})</h2> 
+          <img src={Poster}/>
         </li>
       );
     }
