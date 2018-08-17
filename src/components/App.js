@@ -3,7 +3,7 @@ import Header from './Header';
 import Books from './books/Books';
 import Paging from './paging/Paging';
 import styles from './App.css';
-import { search } from '../services/booksApi';
+import { search as searchBooks } from '../services/booksApi';
 
 class App extends Component {
 
@@ -11,26 +11,25 @@ class App extends Component {
     data: null,
     search: null,
     page: 1,
-    perPage: 20,
-    totalResults: 0
+    perPage: 20
   };
 
   handleSearch = (term) => {
     this.setState({ search: term.search });
     console.log(`You searched for ${term.search}`);
-    search(term)
+    searchBooks(term, this.state.page, this.state.perPage)
       .then(results => this.setState({ data: results }));
     console.log('****AFTER SEARCH*****');
   };
 
   handlePage = paging => {
     this.setState(paging, () => {
-      this.search();
+      searchBooks();
     });
   };
 
   render() {
-    const { data, search, page, perPage, totalResults } = this.state;
+    const { data, search, page, perPage } = this.state;
 
     return (
       <main className={styles.app}>
@@ -48,7 +47,7 @@ class App extends Component {
             <Paging 
               page={page}
               perPage={perPage}
-              totalResults={totalResults}
+              totalResults={data.totalItems}
               onPage={this.handlePage}
             />
           </Fragment>  

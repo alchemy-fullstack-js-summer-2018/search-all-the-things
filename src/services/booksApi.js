@@ -7,15 +7,15 @@ const throwJson = json => { throw json; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-export function search( term/* , page, perPage */ ) {
+export function search(term, page, perPage) {
   console.log('*****SEARCH*********', term);
-  // const bookIndex = (page * perPage) - perPage;
+  const bookIndex = (page * perPage) - perPage;
   const search = `&q=${term.search}`;
-  // const paging = `&maxResults=${perPage}&startIndex=${bookIndex}`;
+  const paging = `&startIndex=${bookIndex}&maxResults=${perPage}`;
 
   //TODO: ${paging} logic
   console.log('*****GET******', `${VOLUMES_URL}${search}`);
-  return get(`${VOLUMES_URL}${search}`);
+  return get(`${VOLUMES_URL}${search}${paging}`);
 }
 
 export function getBook(volumeId) {

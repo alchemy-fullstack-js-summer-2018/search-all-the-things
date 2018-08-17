@@ -12,8 +12,8 @@ class Paging extends Component {
 
   handlePage(increment) {
     const { page, onPage } = this.props;
-    onPage({ page: page + incrememt });
-  };
+    onPage({ page: page + increment });
+  }
 
   render() {
     const { page, perPage, totalResults } = this.props;
