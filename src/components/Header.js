@@ -28,10 +28,10 @@ class Header extends Component {
             </ul>
           </nav>
         </section> 
-          <section className="search-container">
+        <section className="search-container">
           <Route component={Search}/>
-          </section>
-        </div>
+        </section>
+      </div>
     );
   }
 }
