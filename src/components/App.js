@@ -24,7 +24,8 @@ class App extends Component {
 
   handlePage = paging => {
     this.setState(paging, () => {
-      searchBooks();
+      searchBooks({ search: this.state.search }, this.state.page, this.state.perPage)
+        .then(results => this.setState({ data: results }));
     });
   };
 

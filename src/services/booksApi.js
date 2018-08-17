@@ -14,7 +14,7 @@ export function search(term, page, perPage) {
   const paging = `&startIndex=${bookIndex}&maxResults=${perPage}`;
 
   //TODO: ${paging} logic
-  console.log('*****GET******', `${VOLUMES_URL}${search}`);
+  console.log('*****GET******', `${VOLUMES_URL}${search}${paging}`);
   return get(`${VOLUMES_URL}${search}${paging}`);
 }
 
