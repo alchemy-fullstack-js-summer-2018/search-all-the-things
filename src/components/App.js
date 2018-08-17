@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Books from './books/Books';
+import Paging from './paging/Paging';
 import styles from './App.css';
 import { search } from '../services/booksApi';
 
@@ -26,6 +27,10 @@ class App extends Component {
         <header>
           <Header onSearch={this.handleSearch}/>
         </header>
+
+        <section>
+          <Paging />
+        </section>
 
         <section>
           <Books books={this.state.data.items}/>
