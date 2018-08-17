@@ -1,0 +1,14 @@
+:local(.books) {
+
+  h1 {
+    text-shadow: 2px 2px #000000;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+}
