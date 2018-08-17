@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Articles test Articles renders as designed 1`] = `
+<ul>
+  <Article
+    article={Object {}}
+    key="0"
+  />
+  <Article
+    article={Object {}}
+    key="1"
+  />
+  <Article
+    article={Object {}}
+    key="2"
+  />
+</ul>
+`;
