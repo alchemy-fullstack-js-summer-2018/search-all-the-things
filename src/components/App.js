@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+// import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
 
 class App extends Component {
+
+  state = {
+    search: null,
+    loading: false,
+    error: null
+  };
 
   handleSearch = search => {
     this.setState({
