@@ -1,22 +1,30 @@
-const API_KEY = '9e217382d31d48af8c3bc200cdc6ddbd';
-const API_QUERY = `apiKey=${API_KEY}`;
-const BASE_URL = 'https://newsapi.org/v2';
-const EVERYTHING_URL = `${BASE_URL}/everything?${API_QUERY}`;
-const SOURCES_URL = `${BASE_URL}/sources?${API_QUERY}`;
-const SORT_QUERY = 'sortBy=publishedAt';
+// const API_KEY = '9ff12e67d0cd5b5a51730b280660b0fc';
+// const API_QUERY = `method=album.search&album=moon&apiKey=${API_KEY}&format=json`;
+// const BASE_URL = 'http://ws.audioscrobbler.com/2.0/';
+// const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`;
 
-const throwJson = json => { throw json; };
-const get = url => fetch(url)
-  .then(r => r.ok ? r.json() : r.json().then(throwJson));
+// const throwJson = json => { throw json; };
 
-export function search({ topic, sources = ['bad'] }, { page = 1, pageSize = 20 } = {}) {
-  const search = `&q=${topic}&sources=${sources.join()}`;
-  const paging = `&page=${page}&pageSize=${pageSize}`;
-  const sort = `&${SORT_QUERY}`;
+// const get = url => {
+//   const json = window.localStorage.getItem(url);
+//   if(json) {
+//     const response = JSON.parse(json);
+//     return Promise.resolve(response);
+//   }
 
-  return get(`${EVERYTHING_URL}${search}${paging}${sort}`);
-}
+//   return fetch(url)
+//     .then(r => r.ok ? r.json() : r.json().then(throwJson))
+//     .then(response => {
+//       window.localStorage.setItem(url, JSON.stringify(response));
+//       return response;
+//     });
 
-export function getSources() {
-  return get(SOURCES_URL).then(r => r.sources);
-}
+// };
+
+// export function getAlbums(search) {
+//   const query = `&album=${search}`;
+//   // const paging = `&page=${page}&pageSize=${pageSize}`;
+
+//   return get(`${EVERYTHING_URL}`);
+// }
+
