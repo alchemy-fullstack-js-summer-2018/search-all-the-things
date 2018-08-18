@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as  Router, Switch, Route } from 'react-router-dom';
-// import { search as searchNews } from '../services/newsApi';
+import { BrowserRouter as  Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './home/Home';
 import Results from './articles/Results';
@@ -19,7 +18,8 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/articles" component={Results}/>
+              <Route exact path="/search" component={Results}/>
+              <Redirect to="/"/>
             </Switch>
           </main>
     

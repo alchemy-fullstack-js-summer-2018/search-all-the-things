@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import qs from 'query-string';
+import PropTypes from 'prop-types';
 import './Search.css';
 
 class Search extends Component {
@@ -27,7 +27,7 @@ class Search extends Component {
 
       const { history } = this.props;
       history.push({
-        pathname: '/articles',
+        pathname: '/search',
         search: qs.stringify({ search })
       });
     };
@@ -42,8 +42,8 @@ class Search extends Component {
       return (
         <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
           <label>
-                Search For:&nbsp;
-            <input value={search} onChange={this.handleChangeSearch}/>
+              Search For:&nbsp;
+            <input name="search" value={search} onChange={this.handleChangeSearch}/>
           </label>
           <button>Search</button>
         </form>

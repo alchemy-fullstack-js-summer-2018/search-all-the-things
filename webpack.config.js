@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path,
     filename: 'bundle.[hash].js',
-    publicPath: ''
+    publicPath: '/'
   },
   mode: 'development',
   devtool: 'inline-source-map',

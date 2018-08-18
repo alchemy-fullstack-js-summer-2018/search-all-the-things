@@ -13,7 +13,6 @@ export default class Paging extends Component {
     handlePage(increment) {
       const { page, onPage } = this.props;
       onPage({ page: page + increment });
-
     }
 
     render() {

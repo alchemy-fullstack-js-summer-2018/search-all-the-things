@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Articles from './Articles';
 import Paging from '../paging/Paging';
-import { getMovies } from '../../services/newsApi';
+import { search as searchMovies } from '../../services/newsApi';
 
 class Results extends Component {
 
@@ -21,18 +21,18 @@ class Results extends Component {
     };
 
     componentDidMount() {
-      this.searchNews();
+      this.searchMovies();
     }
 
     componentDidUpdate({ location }) {
       const { search: oldSearch } = qs.parse(location.search);
       if(oldSearch === this.searchTerm) return;
-      this.searchNews();
+      this.searchMovies();
     }
 
     handlePage = paging => {
       this.setState(paging, () => {
-        this.searchNews();
+        this.searchMovies();
       });
     };
 
@@ -42,18 +42,35 @@ class Results extends Component {
       return search;
     }
 
-    searchNews() {
+    searchMovies() {
+      const { page, perPage } = this.state;
+      const search = this.searchTerm;
+      if(!search) return;
+
       this.setState({
         loading: true,
         error: null
-      });
+      }); 
 
-      getMovies() 
+      // getMovies() 
+      //   .then(
+      //     ({ results }) => {
+      //       this.setState({
+      //         movies: results
+      //       });
+      //     },
+      //     err => {
+      //       this.setState({ error: err.message });
+      //     }
+      //   )
+      //   .then(() => {
+      //     this.setState({ loading: false });
+      //   });
+
+      searchMovies({ search }, { page, perPage })
         .then(
-          ({ results }) => {
-            this.setState({
-              movies: results
-            });
+          ({ Search, totalResults }) => {
+            this.setState({ Search, totalResults });
           },
           err => {
             this.setState({ error: err.message });
@@ -66,33 +83,33 @@ class Results extends Component {
 
     render() {
 
-      const { articles, loading, error } = this.state;
+      const { Search, loading, error } = this.state;
       const { page, perPage, totalResults } = this.state;
       const { searchTerm } = this;
 
       return (
         <section>
           {(loading || error) &&
-          <section className="notifications">
-            {loading && <div>Loading...</div>}
-            {error && <div>{error}</div>}
-          </section>
+            <section className="notifications">
+              {loading && <div>Loading...</div>}
+              {error && <div>{error}</div>}
+            </section>
           }
 
           {searchTerm && 
-          <Fragment>
-            <p>Searching for &quot;{searchTerm}&quot;</p>
-            <Paging 
-              page={page}
-              perPage={perPage}
-              totalResults={totalResults}
-              onPage={this.handlePage}
-            />
-          </Fragment>
+            <Fragment>
+              <p>Searching for &quot;{searchTerm}&quot;</p>
+              <Paging 
+                page={page}
+                perPage={perPage}
+                totalResults={parseInt(totalResults)}
+                onPage={this.handlePage}
+              />
+            </Fragment>
           }
 
-          {articles 
-            ? <Articles articles={articles}/>
+          {Search 
+            ? <Articles articles={Search}/>
             : <p>Please enter a search to get started</p>
           }
         </section>

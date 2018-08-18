@@ -1,5 +1,5 @@
 import { get } from './request';
-const API_KEY = '2156e816';
+const API_KEY = '1311a145';
 const API_QUERY = `apikey=${API_KEY}`;
 const BASE_URL = 'https://www.omdbapi.com';
 const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`;
@@ -18,7 +18,7 @@ const getUrl = url => {
     });
 };
 
-export function search({ search }, { page = 1 } = {}) {
+export function search({ search }, { page = 1 }) {
   const searchTerm = `&s=${search}`;
   const paging = `&page=${page}`;
 
