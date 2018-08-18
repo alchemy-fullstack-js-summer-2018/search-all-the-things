@@ -28,7 +28,11 @@ class Results extends Component {
 
   componentDidUpdate({ location }) {
     const { search: oldSearch } = qs.parse(location.search);
-    if(oldSearch !== this.searchTerm) this.searchBooks;
+    console.log('***OLD SEARCH***', oldSearch);
+    console.log('***COMPONENT DID UPDATE***', this.searchTerm);
+    if(oldSearch !== this.searchTerm) {
+      this.searchBooks();
+    }
   }
 
   get searchTerm() {

@@ -28,7 +28,7 @@ class Search extends Component {
     event.preventDefault();
     const { search } = this.state;
     if(!search) return;
-
+    console.log('HANDLE SUBMIT HAPPEND');
     const { history } = this.props;
     history.push({
       pathname: '/results',
