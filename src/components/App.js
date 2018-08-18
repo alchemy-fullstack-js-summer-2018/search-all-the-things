@@ -22,8 +22,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/favorites" component={Favorites}/>
-              {/* <Route exact path="/albums" component={Results}/> */}
-              {/* <Route exact path="/albums/:id" component={AlbumDetail}/> */}
+              <Route exact path="/albums" component={Results}/>
+              <Route exact path="/albums/:id" component={AlbumDetail}/>
               <Redirect to="/"/>
             </Switch>
           </main>

@@ -65,7 +65,7 @@ class Results extends Component {
       });
   }
 
-  render () {
+  render() {
     const { albums, loading, error } = this.state;
     const { page, perPage, totalResults } = this.state;
     const { searchTerm } = this;

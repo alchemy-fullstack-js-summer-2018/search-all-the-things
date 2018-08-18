@@ -21,10 +21,10 @@ const get = url => {
 
 };
 
-export function getAlbums({ search = [] }, { page = 1, pageSize = 20 } = {}) {
-  const query = `&q=${search}`;
-  const paging = `&page=${page}&pageSize=${pageSize}`;
+export function getAlbums({ search } = {}) {
+  const query = `&album=${search}`;
+  // const paging = `&page=${page}&pageSize=${pageSize}`;
 
-  return get(`${EVERYTHING_URL}${query}${paging}`);
+  return get(`${EVERYTHING_URL}`);
 }
 
