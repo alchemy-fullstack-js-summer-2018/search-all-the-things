@@ -28,11 +28,12 @@ class Search extends Component {
     event.preventDefault();
     const { search } = this.state;
     if(!search) return;
+
     console.log('HANDLE SUBMIT HAPPEND');
     const { history } = this.props;
     history.push({
       pathname: '/results',
-      search: qs.stringify({ search })
+      search: qs.stringify({ search, page: 1, perPage: 20 })
     });
   };
 

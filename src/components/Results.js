@@ -11,15 +11,14 @@ class Results extends Component {
   state = {
     data: null,
     search: null,
-    page: 1,
-    perPage: 20,
     totalItems: 0,
     loading: false,
     error: null
   };
 
   static propTypes = {
-    location: PropTypes.object.isRequired
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   };
 
   componentDidMount() {
@@ -27,15 +26,15 @@ class Results extends Component {
   }
 
   componentDidUpdate({ location }) {
-    const { search: oldSearch } = qs.parse(location.search);
-    if(oldSearch !== this.searchTerm) {
+    const oldSearch = qs.parse(location.search);
+    if(oldSearch.search !== this.searchTerm.search || oldSearch.page !== this.searchTerm.page || oldSearch.perPage !== this.searchTerm.perPage) {
       this.searchBooks();
     }
   }
 
   get searchTerm() {
     const { location } = this.props;
-    const { search } = qs.parse(location.search);
+    const search = qs.parse(location.search);
     return search;
   }
 
@@ -55,24 +54,26 @@ class Results extends Component {
     console.log('****AFTER SEARCH*****');
   };
 
-  handlePage = paging => {
-    this.setState(paging, () => {
-      apiSearchBooks({ search: this.state.search }, this.state.page, this.state.perPage)
-        .then(results => this.setState({ data: results }));
+  handlePageChange = page => {
+    const { search, perPage } = this.state.search;
+    const { history } = this.props;
+    history.push({
+      pathname: '/results',
+      search: qs.stringify({ search, page, perPage })
     });
   };
 
   
   searchBooks() {
-    const { page, perPage } = this.state;
     const search = this.searchTerm;
+    console.log('***HERE IS SEARCH***', search);
 
     this.setState({
       loading: true,
       error: null
     });
 
-    apiSearchBooks({ search, page, perPage })
+    apiSearchBooks(search)
       .then(
         results => {
           console.log(results);
@@ -88,20 +89,20 @@ class Results extends Component {
   }
 
   render() {
-    const { data, search, page, perPage, totalItems } = this.state;
+    const { data, search, totalItems } = this.state;
 
     return (
       <section>
         {data &&
         <Fragment>
           <p>
-            Searching for &quot;{search}&quot;
+            Searching for &quot;{search.search}&quot;
           </p>
           <Paging 
-            page={page}
-            perPage={perPage}
-            totalResults={totalItems}
-            onPage={this.handlePage}
+            page={+search.page}
+            perPage={+search.perPage}
+            totalResults={+totalItems}
+            onPage={this.handlePageChange}
           />
         </Fragment>  
         }
