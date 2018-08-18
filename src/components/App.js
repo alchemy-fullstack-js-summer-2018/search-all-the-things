@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as  Switch, Route, Router } from 'react-router-dom';
+import { BrowserRouter as  Switch, Route, BrowserRouter } from 'react-router-dom';
 // import { search as searchNews } from '../services/newsApi';
 import Header from './Header';
 import Results from './articles/Results';
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     
     return (
-      <Router>
+      <BrowserRouter>
         <div className={styles.app}>
           <header>
             <Header onSearch={this.handleSearch}/>
@@ -22,7 +22,7 @@ class App extends Component {
           </main>
     
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
