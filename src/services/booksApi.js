@@ -33,9 +33,9 @@ export function search(searchParams) {
 
 export function getBook(volumeId) {
   console.log('*****getBook********', volumeId);
-  return get(`${BOOK_URL}/${volumeId}`)
-    .then(r => {
-      console.log('*****URL*****', `${BOOK_URL}/${volumeId}`);
-      r.books;
-    });
+  return get(`${BOOK_URL}/${volumeId}`);
+    // .then(r => {
+    //   console.log('***API BOOK***', r);
+    //   console.log('*****URL*****', `${BOOK_URL}/${volumeId}`);
+    // });
 }
