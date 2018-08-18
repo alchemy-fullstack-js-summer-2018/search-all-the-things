@@ -11,12 +11,13 @@ module.exports = {
   output: {
     path, 
     filename: 'bundle.[hash].js',
-    publicPath: ''
+    publicPath: '/'
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: `./${buildDir}`
+    contentBase: `./${buildDir}`,
+    historyApiFallback: true
   },
   plugins: [
     new CleanPlugin(`${path}/bundle.*.js`),
