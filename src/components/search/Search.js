@@ -17,9 +17,9 @@ class Search extends Component {
 
   componentDidMount() {
     const { location, match, history } = this.props;
-    console.log('**HISTORY**', history);
-    console.log('**MATCH**', match);
-    console.log('**LOCATION**', location);
+    // console.log('**HISTORY**', history);
+    // console.log('**MATCH**', match);
+    // console.log('**LOCATION**', location);
     const { search = '' } = qs.parse(location.search);
     this.setState({ search });
   }

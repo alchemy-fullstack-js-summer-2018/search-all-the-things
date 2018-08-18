@@ -28,8 +28,6 @@ class Results extends Component {
 
   componentDidUpdate({ location }) {
     const { search: oldSearch } = qs.parse(location.search);
-    console.log('***OLD SEARCH***', oldSearch);
-    console.log('***COMPONENT DID UPDATE***', this.searchTerm);
     if(oldSearch !== this.searchTerm) {
       this.searchBooks();
     }
@@ -78,8 +76,7 @@ class Results extends Component {
       .then(
         results => {
           console.log(results);
-          this.setState({ data: results });
-          this.setState({ totalItems: results.totalItems });
+          this.setState({ data: results.items, totalItems: results.totalItems, search: this.searchTerm });
         },
         err => {
           this.setState({ error: err.message });
@@ -110,7 +107,7 @@ class Results extends Component {
         }
       
         {data
-          ? <Books books={data.items}/>
+          ? <Books books={data}/>
           : <p>Please enter a search to get started</p>
         }
       </section>
