@@ -41,18 +41,18 @@ class App extends Component {
 
   searchBooks() {
     const { search, page, perPage } = this.state;
-
+    
     this.setState({
       loading: true,
       error: null
     });
-
-    apiSearchBooks({ search, page, perPage })
-      .then(
-        results => {
-          console.log(results);
-          this.setState({ data: results });
-          this.setState({ totalItems: results.totalItems });
+    
+    return apiSearchBooks({ search, page, perPage })
+    .then(
+      results => {
+        console.log(results);
+        this.setState({ data: results });
+        this.setState({ totalItems: results.totalItems });
         },
         err => {
           this.setState({ error: err.message });
