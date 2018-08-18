@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import styles from './article.css';
+// import logo from '../../assets/logo.png';
 
-export default class Article extends Component {
+export default class Album extends Component {
 
   static propTypes = {
-    article: PropTypes.object.isRequired
+    album: PropTypes.object.isRequired
   };
 
   render() {
-    const { article } = this.props;
-    const { title, author, description } = article;
-    const { publishedAt, url, urlToImage }
-   = article;
+    const { album } = this.props;
+    const { name, artist, id } = album;
 
     return (
-      <li>
-        <h2>{title} by {author} on {publishedAt}</h2>
-        <a href={url}
-          target="_blank"
-          rel="noopener noreferrer">
-          view article
-        </a>
-        <p>{description}</p>
-        <img src={urlToImage}/>
+      <li className={styles.article}>
+        <Link to={`/albums/${id}`}>
+          {`${name}, ${artist}`}
+        </Link>
       </li>
     );
   }
