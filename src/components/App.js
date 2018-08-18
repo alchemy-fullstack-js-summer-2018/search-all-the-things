@@ -65,36 +65,45 @@ class App extends Component {
   }
 
   render() {
-    const { data, search, page, perPage, totalItems } = this.state;
+    const { data, search, page, perPage, totalItems, loading, error } = this.state;
 
     return (
-      <main className={styles.app}>
+      <div>
         <h1>Alchemy Code Lab Library</h1>
         <header>
           <Header onSearch={this.handleSearch}/>
         </header>
 
-        <section>
-          {data &&
-          <Fragment>
-            <p>
-              Searching for &quot;{search}&quot;
-            </p>
-            <Paging 
-              page={page}
-              perPage={perPage}
-              totalResults={totalItems}
-              onPage={this.handlePage}
-            />
-          </Fragment>  
+        <main className={styles.app}>
+          {(loading || error) &&
+            <section className="notifications">
+              {loading && <div>Loading...</div>}            
+              {error && <div>{error}</div>}
+            </section>
           }
-        
-          {data
+
+          <section>
+            {data &&
+            <Fragment>
+              <p>
+                Searching for &quot;{search}&quot;
+              </p>
+              <Paging 
+                page={page}
+                perPage={perPage}
+                totalResults={totalItems}
+                onPage={this.handlePage}
+              />
+            </Fragment>  
+            }
+
+            {data
             ? <Books books={data.items}/>
             : <p>Please enter a search to get started</p>
-          }
-        </section>
-      </main>
+            }
+          </section>
+        </main>
+      </div>
     );
   }
 }
