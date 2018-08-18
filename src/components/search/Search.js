@@ -3,23 +3,37 @@ import PropTypes from 'prop-types';
 import qs from 'query-string';
 import './Search.css';
 
-export default class Search extends Component {
+class Search extends Component {
 
     state = {
       search: ''
     };
 
     static propTypes = {
-      onSearch: PropTypes.func.isRequired
+      history: PropTypes.object.isRequired,
+      location: PropTypes.object.isRequired
     };
 
-    handleChange = ({ target }) => {
-      this.setState({ search: target.value });
-    };
+    componentDidMount() {
+      const { location } = this.props;
+      const { search = '' } = qs.parse(location.search);
+      this.setState({ search });
+    }
 
     handleSubmit = event => {
       event.preventDefault();
-      this.props.onSearch(this.state);
+      const { search } = this.state;
+      if(!search) return;
+
+      const { history } = this.props;
+      history.push({
+        pathname: '/articles',
+        search: qs.stringify({ search })
+      });
+    };
+
+    handleChangeSearch = ({ target }) => {
+      this.setState({ search: target.value });
     };
 
     render() {
@@ -29,10 +43,11 @@ export default class Search extends Component {
         <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
           <label>
                 Search For:&nbsp;
-            <input value={search} onChange={this.handleChange}/>
+            <input value={search} onChange={this.handleChangeSearch}/>
           </label>
           <button>Search</button>
         </form>
       );
     }
 }
+export default Search;

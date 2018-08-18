@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Articles from './Articles';
 import Paging from '../paging/Paging';
-import { search } from '../../services/newsApi';
+import { getMovies } from '../../services/newsApi';
 
 class Results extends Component {
 
@@ -48,15 +48,16 @@ class Results extends Component {
         error: null
       });
 
-      search() 
-        .then(({ results }) => {
-          this.setState({
-            movies: results
-          });
-        },
-        err => {
-          this.setState({ error: err.message });
-        }
+      getMovies() 
+        .then(
+          ({ results }) => {
+            this.setState({
+              movies: results
+            });
+          },
+          err => {
+            this.setState({ error: err.message });
+          }
         )
         .then(() => {
           this.setState({ loading: false });

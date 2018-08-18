@@ -29,4 +29,7 @@ export function getMovies(id) {
   if(id) {
     return getUrl(`${EVERYTHING_URL}&i=${id}`);
   }
+  else {
+    return getUrl(EVERYTHING_URL);
+  }
 }
