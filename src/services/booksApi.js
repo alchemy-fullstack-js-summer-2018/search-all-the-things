@@ -20,11 +20,11 @@ const get = url => {
     });
 };
 
-export function search(term, page, perPage) {
-  console.log('*****SEARCH*********', term);
-  const bookIndex = (page * perPage) - perPage;
-  const search = `&q=${term.search}`;
-  const paging = `&startIndex=${bookIndex}&maxResults=${perPage}`;
+export function search(searchParams) {
+  console.log('*****SEARCH*********', searchParams);
+  const bookIndex = (searchParams.page * searchParams.perPage) - searchParams.perPage;
+  const search = `&q=${searchParams.search}`;
+  const paging = `&startIndex=${bookIndex}&maxResults=${searchParams.perPage}`;
 
   //TODO: ${paging} logic
   console.log('*****GET******', `${VOLUMES_URL}${search}${paging}`);

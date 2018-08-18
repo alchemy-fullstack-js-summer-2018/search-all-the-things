@@ -3,7 +3,7 @@ import Header from './Header';
 import Books from './books/Books';
 import Paging from './paging/Paging';
 import styles from './App.css';
-import { search as searchBooks } from '../services/booksApi';
+import { search as apiSearchBooks } from '../services/booksApi';
 
 class App extends Component {
 
@@ -12,26 +12,57 @@ class App extends Component {
     search: null,
     page: 1,
     perPage: 20,
-    totalItems: 0
+    totalItems: 0,
+    loading: false,
+    error: null
   };
 
   handleSearch = (term) => {
-    this.setState({ search: term.search });
-    console.log(`You searched for ${term.search}`);
-    searchBooks(term, this.state.page, this.state.perPage)
-      .then(results => {
-        this.setState({ data: results })
-        this.setState({ totalItems: results.totalItems });
-      });
+    this.setState({ 
+      ...term,
+      page: 1 
+    }, () => {
+      console.log(`You searched for ${term.search}`);
+      this.searchBooks();
+    });
+    // this.searchBooks()
+    //   .then(results => {
+    //     this.setState({ data: results });
+    //     this.setState({ totalItems: results.totalItems });
+    //   });
     console.log('****AFTER SEARCH*****');
   };
 
   handlePage = paging => {
     this.setState(paging, () => {
-      searchBooks({ search: this.state.search }, this.state.page, this.state.perPage)
+      apiSearchBooks({ search: this.state.search }, this.state.page, this.state.perPage)
         .then(results => this.setState({ data: results }));
     });
   };
+
+  searchBooks() {
+    const { search, page, perPage } = this.state;
+
+    this.setState({
+      loading: true,
+      error: null
+    });
+
+    apiSearchBooks({ search, page, perPage })
+      .then(
+        results => {
+          console.log(results);
+          this.setState({ data: results });
+          this.setState({ totalItems: results.totalItems });
+        },
+        err => {
+          this.setState({ error: err.message });
+        }
+      )
+      .then(() => {
+        this.setState({ loading: false });
+      });
+  }
 
   render() {
     const { data, search, page, perPage, totalItems } = this.state;
