@@ -1,5 +1,5 @@
 const API_KEY = '9ff12e67d0cd5b5a51730b280660b0fc';
-const API_QUERY = `method=album.search&album=${search}&apiKey=${API_KEY}&format=json`;
+const API_QUERY = `method=album.search&album=${getAlbums}&apiKey=${API_KEY}&format=json`;
 const BASE_URL = 'http://ws.audioscrobbler.com/2.0/';
 const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`;
 
@@ -15,13 +15,13 @@ const get = url => {
   return fetch(url)
     .then(r => r.ok ? r.json() : r.json().then(throwJson))
     .then(response => {
-      window.localStorage.setItem(url, JSON.stringify(response))
+      window.localStorage.setItem(url, JSON.stringify(response));
       return response;
     });
 
 };
 
-export function search({ search = [] }, { page =1, pageSize = 20 } = {}) {
+export function getAlbums({ search = [] }, { page = 1, pageSize = 20 } = {}) {
   const query = `&q=${search}`;
   const paging = `&page=${page}&pageSize=${pageSize}`;
 

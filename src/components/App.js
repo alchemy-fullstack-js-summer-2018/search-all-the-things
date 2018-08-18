@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// import Albums from './albums/Albums';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './home/Home';
-// import Results from './albums/Results';
-// import AlbumDetail from './albums/AlbumDetail';
+import Results from './albums/Results';
+import AlbumDetail from './albums/AlbumDetail';
 import Favorites from './favorites/Favorites';
 import styles from './App.css';
 

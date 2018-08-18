@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './article.css';
+import styles from './album.css';
 // import logo from '../../assets/logo.png';
 
 export default class Album extends Component {
@@ -15,7 +15,7 @@ export default class Album extends Component {
     const { name, artist, id } = album;
 
     return (
-      <li className={styles.article}>
+      <li className={styles.album}>
         <Link to={`/albums/${id}`}>
           {`${name}, ${artist}`}
         </Link>
