@@ -11,7 +11,7 @@ export default class Articles extends Component {
   render() {
 
     const { articles } = this.props;
-
+    
     return (
       <ul>
         {articles.map((article, i) => (

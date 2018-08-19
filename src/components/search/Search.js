@@ -11,14 +11,14 @@ export default class Search extends Component {
   static propTypes = {
     onSearch: PropTypes.func.isRequired
   };
-
-  handleChange = ({ target }) => {
-    this.setState({ search: target.value });
-  };
-
+  
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSearch(this.state);
+  };
+  
+  handleChangeSearch = ({ target }) => {
+    this.setState({ search: target.value });
   };
 
   render() {
@@ -28,7 +28,7 @@ export default class Search extends Component {
       <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
         <label>
           Search for:&nbsp;
-          <input value={search} onChange={this.handleChange}/>
+          <input name="search" value={search} onChange={this.handleChangeSearch}/>
         </label>
         <button>Search</button>
       </form>
