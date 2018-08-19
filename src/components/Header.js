@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
 import Search from './search/Search';
+import { Link, Route } from 'react-router-dom';
 import styles from './Header.css';
 
 class Header extends Component {
@@ -16,10 +16,13 @@ class Header extends Component {
         <nav>
           <ul>
             <li>
-              <Link to="/articles">Search</Link>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/search">Search</Link>
             </li>
           </ul>
-        </nav>
+        </nav> 
         <section className="search-container">
           <Route component={Search}/>
         </section>

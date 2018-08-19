@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
 
 export default class Article extends Component {
 
@@ -13,8 +14,8 @@ export default class Article extends Component {
 
       return (
         <li>
-          <h2><strong>{Title}</strong> ({Year})</h2> 
           <img src={Poster}/>
+          <h2><strong>{Title}</strong> ({Year})</h2> 
         </li>
       );
     }

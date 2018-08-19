@@ -13,13 +13,12 @@ export default class Paging extends Component {
     handlePage(increment) {
       const { page, onPage } = this.props;
       onPage({ page: page + increment });
-
     }
 
     render() {
       const { totalResults, page, perPage } = this.props;
 
-      if(!totalResults) return <div> No Results Foudn, try another search</div>;
+      if(!totalResults) return <div> No Results Found - try another search</div>;
 
       const totalPages = Math.ceil(totalResults / perPage);
       return (
