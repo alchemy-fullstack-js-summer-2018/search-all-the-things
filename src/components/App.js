@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import Articles from './articles/Articles';
+import Paging from './paging/Paging';
 import styles from './App.css';
 import { search as searchNews } from '../services/newsApi';
 
@@ -12,7 +13,14 @@ class App extends Component {
     page: 1,
     perPage: 15,
     totalResults: 0,
-    error: null
+    error: null,
+    loading: false
+  };
+
+  handlePage = paging => {
+    this.setState(paging, () => {
+      this.searchNews();
+    });
   };
 
   handleSearch = search => {
@@ -40,18 +48,43 @@ class App extends Component {
         err => {
           this.setState({ error: err.message });
         }
-      );
+      )
+      .then(() => {
+        this.setState({ loading: false });
+      });
   }
   
   render() {
-    const { articles } = this.state;
+    const { articles, search, error, loading } = this.state;
+    const { page, perPage, totalResults } = this.state;
+
     return (
       <div className={styles.app}>
         <header>
-          It is alive!
           <Header onSearch={this.handleSearch}/>
         </header>
+
+        <main>
+          {(loading || error) &&
+            <section className="notifications">
+              {loading && <div>Loading...</div>}
+              {error && <div>{error}</div>}
+            </section>
+          }
+        </main>
+
         <section>
+          {search &&
+          <Fragment>
+            <p>Searching for &quot;{search}&quot;</p>
+            <Paging
+              page={page}
+              perPage={perPage}
+              totalResults={totalResults}
+              onPage={this.handlePage}
+            />
+          </Fragment>
+          }
           {articles
             ? <Articles articles={articles}/>
             : <p>Please enter a search to find news</p>

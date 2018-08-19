@@ -16,12 +16,12 @@ export default class Article extends Component {
       <li>
         <h2>{title}</h2>
         <p>by {author}, published on {new Date(publishedAt).toLocaleString()}</p>
+        <p>{description}</p>
         <a href={url}
           target="_blank"
           rel="noopener noreferrer">
-          read more
+          Read more
         </a>
-        <p>{description}</p>
 
         {urlToImage &&
           <p className="image">
