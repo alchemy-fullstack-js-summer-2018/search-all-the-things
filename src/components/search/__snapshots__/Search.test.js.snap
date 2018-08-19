@@ -8,6 +8,7 @@ exports[`Search renders as expected 1`] = `
   <label>
     Search for: 
     <input
+      name="search"
       onChange={[Function]}
       value=""
     />
