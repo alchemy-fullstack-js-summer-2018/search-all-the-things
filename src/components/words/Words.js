@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Word from './Words';
+import Word from './Word';
 import styles from './Words.css';
 
 export default class Words extends Component {
 
   static propTypes = {
-    words: PropTypes.arrayOf(Object)
+    words: PropTypes.array
   };
 
   render() {
@@ -16,7 +16,6 @@ export default class Words extends Component {
         {words.map((word, i) => (
           <Word key={i} word={word}/>
         ))}
-        <li>list word app</li>
       </ul>
     );
   }
