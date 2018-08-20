@@ -6,7 +6,7 @@ import { addFavorite, getFavorite, removeFavorite } from '../../services/favorit
 export default class Album extends Component {
 
   state = {
-    albums: null,
+    album: null,
     favorite: null
   };
 
@@ -17,8 +17,8 @@ export default class Album extends Component {
   componentDidMount() {
     const { mbid } = this.props.match.params;
     getAlbums(mbid)
-      .then(albums => {
-        this.setState({ albums });
+      .then(album => {
+        this.setState({ album });
       })
       .catch(console.log);
 
@@ -30,7 +30,7 @@ export default class Album extends Component {
   }
 
   handleClick = () => {
-    const { albums, favorites } = this.state;
+    const { album, favorite } = this.state;
     const isFavorite = !!favorite;
 
     if(isFavorite) {
@@ -41,7 +41,7 @@ export default class Album extends Component {
         .catch(console.log);
     }
     else {
-      addFavorite(this.state.albums)
+      addFavorite(this.state.album)
         .then(favorite => {
           this.setState({ favorite });
         })
@@ -50,14 +50,14 @@ export default class Album extends Component {
   };
 
   render() {
-    const { albums, favorite } = this.state;
-    if(!albums) return null;
+    const { album, favorite } = this.state;
+    if(!album) return null;
 
-    const { name, artist } = albums;
+    const { name, artist } = album;
 
     return (
       <article>
-        <h2>{name}</h2>
+        <h2>{name}, {artist}</h2>
         {/* <img src={ ** image variable goes here **} /> */}
         <button onClick={this.handleClick}>
           {favorite ? 'Remove From' : 'Add To' } Favorites
