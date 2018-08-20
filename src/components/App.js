@@ -34,11 +34,11 @@ class App extends Component {
       loading: true,
       error: null
     });
+    console.log('HEYYYY', search);
 
     searchWords(search)
       .then(
         (words) => {
-          console.log('words', words);
           this.setState({ words });
         }
       )
@@ -51,7 +51,6 @@ class App extends Component {
   render() {
     const { words, search, loading, error } = this.state;
     // const { page, perPage, totalResults } = this.state;
-    console.log('words in app', words);
     return (
       <div className={styles.app}>
         <header>

@@ -13,10 +13,7 @@ export default class Words extends Component {
     const { words } = this.props;
     return (
       <Fragment>
-        <h2 className={styles.words}>
-          
-        </h2>
-        <ul >
+        <ul className={styles.words}>
           {words.map((word, i) => (
             <Word key={i} word={word}/>
           ))}
