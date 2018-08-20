@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Word from './Words';
+import Word from './Word';
 import styles from './Words.css';
 
 export default class Words extends Component {
 
   static propTypes = {
-    words: PropTypes.arrayOf(Object)
+    words: PropTypes.array
   };
 
   render() {

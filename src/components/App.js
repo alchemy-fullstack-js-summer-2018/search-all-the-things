@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-//import { search as searchWords } from '../services/wordnikApi';
+import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
-import Words from './Words/Words';
+import Words from './words/Words';
 
 class App extends Component {
 
@@ -15,17 +15,43 @@ class App extends Component {
 
   handleSearch = search => {
     this.setState({
-      ...search,
-      page: 1
+      ...search
     }, () => {
       this.searchWords();
     });
   };
 
+  handlePage = paging => {
+    this.setState(paging, () => {
+      this.searchWords();
+    });
+  };
+
+  searchWords() {
+    const { search } = this.state;
+
+    this.setState({
+      loading: true,
+      error: null
+    });
+
+    searchWords(search)
+      .then(
+        (words) => {
+          console.log('words', words);
+          this.setState({ words });
+        }
+      )
+      .then(() => {
+        this.setState({ loading: false });
+      });
+      
+  }
+
   render() {
     const { words, search, loading, error } = this.state;
     // const { page, perPage, totalResults } = this.state;
-    
+    console.log('words in app', words);
     return (
       <div className={styles.app}>
         <header>
@@ -47,9 +73,8 @@ class App extends Component {
               </Fragment>
             }
 
-            {words
-              ? <Words words={words}/>
-              : <p>Please search for a word</p>
+            {words &&
+              <Words words={words}/> 
             }
 
           </section>
