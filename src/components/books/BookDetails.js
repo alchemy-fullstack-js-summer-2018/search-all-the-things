@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getBook } from '../../services/booksApi';
-import { addFavorite } from '../../services/favoritesApi';
+import { addFavorite, getFavorite } from '../../services/favoritesApi';
 
 class BookDetail extends Component {
 
@@ -21,6 +21,12 @@ class BookDetail extends Component {
       .then(_book => {
         console.log('***BOOK***', _book);
         this.setState({ book: _book });
+      })
+      .catch(console.log);
+
+    getFavorite(id)
+      .then(favorite => {
+        this.setState({ favorite });
       })
       .catch(console.log);
   }
