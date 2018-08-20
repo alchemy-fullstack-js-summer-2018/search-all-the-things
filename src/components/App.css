@@ -1,7 +1,5 @@
 :local(.app) {
 
-  h2 { 
-    background-color: lightblue;
-  }
+  font-family: Arial, Helvetica, sans-serif;
   
 } 
