@@ -14,12 +14,12 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <header>
-            <h1>Alchemy Code Lab Library</h1>
+          <header className={styles.app}>
+            <h1 id="title">Search all the books!</h1>
             <Header onSearch={this.handleSearch}/>
           </header>
 
-          <main className={styles.app}>
+          <main>
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/favorites" component={Favorites}/>

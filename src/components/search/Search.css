@@ -1,0 +1,14 @@
+:local(.search) {
+
+  display: flex;
+  padding-top: 20px;
+  color: white;
+  font-family: 'Lora', serif;
+
+  #search-input {
+    background-color: white;
+    color: rgb(47, 47, 47);
+    border-radius: 2px;
+  }
+
+}

@@ -43,13 +43,17 @@ class Search extends Component {
 
     return (
       <div className={styles.search}>
-        <h3>Search Component</h3>
-        <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
-          <label>
-            Search For:&nbsp;
-            <input value={search} onChange={this.handleChange}/>
-          </label>
-          <button>Search</button>
+        <form action="#" className="search-form" onSubmit={event => this.handleSubmit(event)}>
+          <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label className="mdl-button mdl-js-button mdl-button--icon" htmlFor="sample6">
+              <i className="material-icons">search</i>
+            </label>
+            <div className="mdl-textfield__expandable-holder">
+              <input id='sample6' value={search} onChange={this.handleChange} className="mdl-textfield__input"/>
+              <label className="mdl-textfield__label" htmlFor="sample-expandable">Expandable Input</label>
+            </div>
+          </div>
+          {/* <button>Search</button> */}
         </form>
       </div>
     );
