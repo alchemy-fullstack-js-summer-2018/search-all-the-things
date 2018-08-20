@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 //import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
+import Words from './Words/Words';
 
 class App extends Component {
 
   state = {
     search: null,
+    words: null,
     loading: false,
     error: null
   };
@@ -21,9 +23,7 @@ class App extends Component {
   };
 
   render() {
-    const { loading, error } = this.state;
-    //line above will change to line below
-    //const { words, search, loading, error } = this.state;
+    const { words, search, loading, error } = this.state;
     // const { page, perPage, totalResults } = this.state;
     
     return (
@@ -33,13 +33,26 @@ class App extends Component {
         </header>
       
         <main>
-          <h2>do u see me? please see me yo.</h2>
+          <h2>App Main</h2>
           {(loading || error) &&
           <section className="notifications">
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
           </section>}
-        
+
+          <section>
+            {search &&
+              <Fragment>
+                <h3> Word you searched for: </h3>
+              </Fragment>
+            }
+
+            {words
+              ? <Words words={words}/>
+              : <p>Please search for a word</p>
+            }
+
+          </section>
         </main>
       </div>
     );
