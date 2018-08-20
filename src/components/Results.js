@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Books from './books/Books';
 import qs from 'query-string';
 import Paging from './paging/Paging';
-import styles from './App.css';
+// import styles from './App.css';
 import { search as apiSearchBooks } from '../services/booksApi';
 
 class Results extends Component {
@@ -18,10 +18,14 @@ class Results extends Component {
 
   static propTypes = {
     location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired
   };
 
   componentDidMount() {
+    console.log('***LOCATION***', location);
+    console.log('***HISTORY***', history);
+    console.log('***MATCH***', this.state.match);
     this.searchBooks();
   }
 

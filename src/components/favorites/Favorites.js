@@ -6,12 +6,12 @@ class Favorites extends Component {
 
   state = {
     favorites: null
-  }
+  };
 
   componentDidMount() {
     getFavorites()
       .then(favorites => {
-        this.setState({ favorites })
+        this.setState({ favorites });
       })
       .catch(console.log);
   }
@@ -23,7 +23,7 @@ class Favorites extends Component {
     return (
       <ul>
         {favorites.map(favorite => {
-          return <Favorite key={favorite.id} book={favorite}/> 
+          return <Favorite key={favorite.id} book={favorite}/>;
         })}
       </ul>
     );

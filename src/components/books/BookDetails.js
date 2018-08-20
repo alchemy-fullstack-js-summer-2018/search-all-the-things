@@ -45,7 +45,7 @@ class BookDetail extends Component {
     else {
       addFavorite(this.state.book)
         .then(favorite => {
-          this.setState({ favorite })
+          this.setState({ favorite });
         })
         .catch(console.log);
     }

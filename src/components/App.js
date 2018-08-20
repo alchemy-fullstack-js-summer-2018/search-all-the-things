@@ -25,6 +25,7 @@ class App extends Component {
               <Route exact path="/favorites" component={Favorites}/>
               <Route exact path="/results" component={Results}/>
               <Route exact path="/results/:id" component={BookDetail}/>
+              <Redirect to='/'/>
             </Switch>
           </main>
         </Fragment>

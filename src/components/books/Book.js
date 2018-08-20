@@ -12,7 +12,6 @@ class Article extends Component {
     const { book } = this.props;
     const url = book.selfLink;
     const split = url.split('/');
-    console.log(split);
     const id = split[split.length - 1];
 
     return (

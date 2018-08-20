@@ -12,14 +12,10 @@ class Search extends Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
-    match: PropTypes.object.isRequired
   };
 
   componentDidMount() {
-    const { location, match, history } = this.props;
-    // console.log('**HISTORY**', history);
-    // console.log('**MATCH**', match);
-    // console.log('**LOCATION**', location);
+    const { location } = this.props;
     const { search = '' } = qs.parse(location.search);
     this.setState({ search });
   }
