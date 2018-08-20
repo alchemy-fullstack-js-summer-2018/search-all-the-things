@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow, configure  } from 'enzyme';
-import Article from './Article';
+import Article from './Movie';
 import Adapter from 'enzyme-adapter-react-16';
 import toJSON from 'enzyme-to-json';
 

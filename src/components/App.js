@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as  Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './home/Home';
-import Results from './articles/Results';
-import ArticleDetail from './articles/ArticleDetail';
+import Results from './movies/Results';
+import MovieDetail from './movies/MovieDetail';
 import Favorites from './favorites/Favorites';
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route exact path="/favorites" component={Favorites}/>
               <Route exact path="/search" component={Results}/>
-              <Route exact path="/articles/:id" component={ArticleDetail}/>
+              <Route exact path="/movies/:id" component={MovieDetail}/>
               <Redirect to="/"/>
             </Switch>
           </main>

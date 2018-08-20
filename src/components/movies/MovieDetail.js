@@ -1,11 +1,11 @@
 /* eslint no-console: off */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getMovies } from '../../services/newsApi';
+import { getMovies } from '../../services/omdbApi';
 import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
-import styles from './ArticleDetail.css';
+import styles from './MovieDetail.css';
 
-export default class Article extends Component {
+export default class Movie extends Component {
 
   state = {
     movie: null,
@@ -58,7 +58,7 @@ export default class Article extends Component {
     const { Title, Poster, Year, Plot, Runtime, Director, Actors } = movie;
 
     return (
-      <div className={styles.articleDetail}>
+      <div className={styles.movieDetail}>
         <img src={Poster}/>
         <h2>{Title}</h2>
         <p><strong>Released:</strong> {Year}</p>
