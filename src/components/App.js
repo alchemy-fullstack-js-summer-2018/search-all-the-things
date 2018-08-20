@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <Fragment>
           <header className={styles.app}>
-            <h1 id="title">Search all the books!</h1>
+            <h2 id="title">Search all the books!</h2>
             <Header onSearch={this.handleSearch}/>
           </header>
 

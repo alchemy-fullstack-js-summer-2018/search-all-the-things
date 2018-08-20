@@ -2,7 +2,8 @@
 
   background-color: rgb(47, 47, 47);
   display: flex;
-  h1 {
+
+  h2 {
     color: white;
     font-family: 'Roboto', sans-serif;
   }
@@ -10,7 +11,6 @@
   #title {
     padding-left: 10px;
   }
-
 
   .notifications {
     position: absolute;

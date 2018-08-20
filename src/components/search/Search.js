@@ -25,7 +25,7 @@ class Search extends Component {
     const { search } = this.state;
     if(!search) return;
 
-    console.log('HANDLE SUBMIT HAPPEND');
+    console.log('HANDLE SUBMIT HAPPENED');
     const { history } = this.props;
     history.push({
       pathname: '/results',
@@ -53,7 +53,6 @@ class Search extends Component {
               <label className="mdl-textfield__label" htmlFor="sample-expandable">Expandable Input</label>
             </div>
           </div>
-          {/* <button>Search</button> */}
         </form>
       </div>
     );

@@ -1,6 +1,5 @@
 :local(.books) {
 
-  
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -15,13 +14,3 @@
   }
   
 }
-
-
-// display: grid;
-// grid-template-columns: 100%;
-// grid-template-rows: 10% 10% 60% 20%;
-// grid-template-areas: 
-//   "title"
-//   "author"
-//   "img"
-//   "detail";

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getFavorites } from '../../services/favoritesApi';
 import Favorite from './Favorite';
+import styles from '../books/Books.css';
 
 class Favorites extends Component {
 
@@ -21,7 +22,7 @@ class Favorites extends Component {
     if(!favorites) return null;
 
     return (
-      <ul>
+      <ul className={styles.books}>
         {favorites.map(favorite => {
           return <Favorite key={favorite.id} book={favorite}/>;
         })}
