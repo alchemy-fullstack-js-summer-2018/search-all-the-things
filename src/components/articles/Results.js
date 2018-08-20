@@ -4,7 +4,6 @@ import qs from 'query-string';
 import Articles from './Articles';
 import Paging from '../paging/Paging';
 import { search as searchMovies } from '../../services/newsApi';
-// import { getMovies } from '../../services/newsApi';
 
 class Results extends Component {
 
@@ -53,21 +52,6 @@ class Results extends Component {
         error: null
       }); 
 
-      // getMovies() 
-      //   .then(
-      //     ({ results }) => {
-      //       this.setState({
-      //         movies: results
-      //       });
-      //     },
-      //     err => {
-      //       this.setState({ error: err.message });
-      //     }
-      //   )
-      //   .then(() => {
-      //     this.setState({ loading: false });
-      //   });
-
       searchMovies({ search }, { page, perPage })
         .then(
           ({ Search, totalResults }) => {
@@ -109,10 +93,12 @@ class Results extends Component {
             </Fragment>
           }
 
-          {movies 
-            ? <Articles articles={movies}/>
-            : <p>Please enter a search to get started</p>
-          }
+          <div>
+            {movies 
+              ? <Articles articles={movies}/>
+              : <h1>Please enter a search to get started</h1>
+            }
+          </div>
         </section>
       );
     }

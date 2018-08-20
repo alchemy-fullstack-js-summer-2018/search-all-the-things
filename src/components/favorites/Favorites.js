@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { getFavorites } from '../../services/favoritesApi';
 import Favorite from './Favorite';
+import styles from './Favorites.css';
 
 class Favorites extends Component {
   state = {
@@ -18,14 +19,16 @@ class Favorites extends Component {
 
   render() {
     const { favorites } = this.state;
-    if(!favorites) return null;
+    if(!favorites) return (<h1>Favorite Movies and Shows</h1>);
 
     return (
-      <ul>
-        {favorites.map(favorite => {
-          return <Favorite key={favorite.imdbID} movie={favorite}/>;
-        })}
-      </ul>
+      <div>
+        <ul className={styles.favorites}>
+          {favorites.map(favorite => {
+            return <Favorite key={favorite.imdbID} movie={favorite}/>;
+          })}
+        </ul>
+      </div>
     );
   }
 }
