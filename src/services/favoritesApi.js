@@ -16,7 +16,7 @@ export const addFavorite = ({ id, volumeInfo }) => {
 };
 
 export const getFavorites = () => {
-  return get(`${FAVORITES_URL}.json`)
+  return get(`${FAVORITES_URL}`)
     .then(response => {
       return Object.keys(response)
         .map(key => response[key]);

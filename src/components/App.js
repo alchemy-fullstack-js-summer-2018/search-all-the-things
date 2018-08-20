@@ -5,6 +5,7 @@ import Results from './Results';
 import BookDetail from './books/BookDetails';
 import styles from './App.css';
 import Home from './home/Home';
+import Favorites from './favorites/Favorites';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
           <main className={styles.app}>
             <Switch>
               <Route exact path="/" component={Home}/>
+              <Route exact path="/favorites" component={Favorites}/>
               <Route exact path="/results" component={Results}/>
               <Route exact path="/results/:id" component={BookDetail}/>
             </Switch>
