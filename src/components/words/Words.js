@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Word from './Word';
 import styles from './Words.css';
@@ -12,11 +12,13 @@ export default class Words extends Component {
   render() {
     const { words } = this.props;
     return (
-      <ul className={styles.words}>
-        {words.map((word, i) => (
-          <Word key={i} word={word}/>
-        ))}
-      </ul>
+      <Fragment>
+        <ul className={styles.words}>
+          {words.map((word, i) => (
+            <Word key={i} word={word}/>
+          ))}
+        </ul>
+      </Fragment>
     );
   }
 }
