@@ -1,4 +1,4 @@
-.search-form {
+:local(.search-form) {
     display: flex;
     align-items: center;
     justify-content: flex-end;

@@ -1,8 +1,10 @@
-import React from 'react';
-import { shallow, mount  } from 'enzyme';
+import * as React from 'react';
+import { shallow, mount, configure  } from 'enzyme';
 import Search from './Search';
+import Adapter from 'enzyme-adapter-react-16';
 import toJSON from 'enzyme-to-json';
 
+configure({ adapter: new Adapter() });
 
 describe('Search Test', () => {
     
