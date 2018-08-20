@@ -15,6 +15,7 @@ class App extends Component {
           <header>
             <Header onSearch={this.handleSearch}/>
           </header>
+          
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>

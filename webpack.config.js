@@ -18,11 +18,13 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: `./${buildDir}`,
+    historyApiFallback: true
   },
   plugins: [
     new CleanPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './src/index.html' })
   ],
+  
   module: {
     rules: [
       // js
@@ -32,19 +34,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ['env', {
-                targets: {
-                  browsers: 'Chrome 65'
-                  // browsers: ['last 2 versions', 'safari >= 7']
-                },
-              }],
-              'react'
-            ],
-            plugins: [
-              require('babel-plugin-transform-object-rest-spread'),
-              require('babel-plugin-transform-class-properties'),
-            ],
             cacheDirectory: true
           }
         }

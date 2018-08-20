@@ -11,8 +11,9 @@ class Header extends Component {
       <div className={styles.header}>
 
         <section className="header-container">
-          <h1>News Search</h1>
+          <h1>Movie Search</h1>
         </section>
+
         <nav>
           <ul>
             <li>
@@ -22,7 +23,8 @@ class Header extends Component {
               <Link to="/search">Search</Link>
             </li>
           </ul>
-        </nav> 
+        </nav>
+
         <section className="search-container">
           <Route component={Search}/>
         </section>

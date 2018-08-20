@@ -83,7 +83,7 @@ class Results extends Component {
 
     render() {
 
-      const { Search, loading, error } = this.state;
+      const { search, loading, error } = this.state;
       const { page, perPage, totalResults } = this.state;
       const { searchTerm } = this;
 
@@ -108,13 +108,12 @@ class Results extends Component {
             </Fragment>
           }
 
-          {Search 
-            ? <Articles articles={Search}/>
+          {search 
+            ? <Articles articles={search}/>
             : <p>Please enter a search to get started</p>
           }
         </section>
       );
     }
 }
-
 export default Results;
