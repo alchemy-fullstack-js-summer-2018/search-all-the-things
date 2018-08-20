@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getBook } from '../../services/booksApi';
+import { addFavorite, getFavorite } from '../../services/favoritesApi';
 
 class BookDetail extends Component {
 
   state = {
     book: null,
+    favorite: null
   };
 
   static propTypes = {
@@ -21,10 +23,26 @@ class BookDetail extends Component {
         this.setState({ book: _book });
       })
       .catch(console.log);
+
+    getFavorite(id)
+      .then(favorite => {
+        this.setState({ favorite });
+      })
+      .catch(console.log);
   }
 
-  render() {
+  handleClick = () => {
     const { book } = this.state;
+    
+    addFavorite(this.state.book)
+      .then(favorite => {
+        this.setState({ favorite })
+      })
+      .catch(console.log);
+  };
+
+  render() {
+    const { book, favorite } = this.state;
     if(!book) return null;
 
     console.log(book);
@@ -34,6 +52,9 @@ class BookDetail extends Component {
       <article>
         <h2>{volumeInfo.title}</h2>
         <img src={volumeInfo.imageLinks.medium}/>
+        <button onClick={this.handleClick}>
+          Favorites
+        </button>
       </article>
     );
   }
