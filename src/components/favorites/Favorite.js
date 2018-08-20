@@ -13,12 +13,14 @@ export default class Article extends Component {
     const { imdbID, Title, Poster } = movie;
 
     return (
-      <li>
-        <Link to={`/articles/${imdbID}`}>
-          <img src={Poster}/>
-          <h2>{Title}</h2>
-        </Link>
-      </li>
+      <div>
+        <li>
+          <Link to={`/articles/${imdbID}`}>
+            <img src={Poster}/>
+            <h2>{Title}</h2>
+          </Link>
+        </li>
+      </div>
     );
   }
 }

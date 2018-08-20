@@ -18,14 +18,16 @@ class Favorites extends Component {
 
   render() {
     const { favorites } = this.state;
-    if(!favorites) return null;
+    if(!favorites) return (<h1>Favorite Movies and Shows</h1>);
 
     return (
-      <ul>
-        {favorites.map(favorite => {
-          return <Favorite key={favorite.imdbID} movie={favorite}/>;
-        })}
-      </ul>
+      <div>
+        <ul>
+          {favorites.map(favorite => {
+            return <Favorite key={favorite.imdbID} movie={favorite}/>;
+          })}
+        </ul>
+      </div>
     );
   }
 }
