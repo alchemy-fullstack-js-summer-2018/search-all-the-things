@@ -4,6 +4,7 @@ import qs from 'query-string';
 import Articles from './Articles';
 import Paging from '../paging/Paging';
 import { search as searchMovies } from '../../services/newsApi';
+// import { getMovies } from '../../services/newsApi';
 
 class Results extends Component {
 
@@ -70,7 +71,7 @@ class Results extends Component {
       searchMovies({ search }, { page, perPage })
         .then(
           ({ Search, totalResults }) => {
-            this.setState({ Search, totalResults });
+            this.setState({ movies: Search, totalResults });
           },
           err => {
             this.setState({ error: err.message });
@@ -83,7 +84,7 @@ class Results extends Component {
 
     render() {
 
-      const { search, loading, error } = this.state;
+      const { movies, loading, error } = this.state;
       const { page, perPage, totalResults } = this.state;
       const { searchTerm } = this;
 
@@ -108,8 +109,8 @@ class Results extends Component {
             </Fragment>
           }
 
-          {search 
-            ? <Articles articles={search}/>
+          {movies 
+            ? <Articles articles={movies}/>
             : <p>Please enter a search to get started</p>
           }
         </section>

@@ -16,7 +16,7 @@ class Search extends Component {
 
   componentDidMount() {
     const { location } = this.props;
-    const { search = '' } = qs.parse(location.search);
+    const { search = '' } = qs.parse(location);
     this.setState({ search });
   }
   
@@ -36,7 +36,6 @@ class Search extends Component {
   handleChangeSearch = ({ target }) => {
     this.setState({ search: target.value });
   };
-
 
   render() {
     const { search } = this.state;
