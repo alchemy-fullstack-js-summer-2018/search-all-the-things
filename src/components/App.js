@@ -21,8 +21,10 @@ class App extends Component {
   };
 
   render() {
-    const { words, search, loading, error } = this.state;
-    const { page, perPage, totalResults } = this.state;
+    const { loading, error } = this.state;
+    //line above will change to line below
+    //const { words, search, loading, error } = this.state;
+    // const { page, perPage, totalResults } = this.state;
     
     return (
       <div className={styles.app}>
