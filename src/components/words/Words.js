@@ -16,6 +16,7 @@ export default class Words extends Component {
         {words.map((word, i) => (
           <Word key={i} word={word}/>
         ))}
+        <li>list word app</li>
       </ul>
     );
   }
