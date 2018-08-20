@@ -24,6 +24,6 @@ export function getAlbums(name) {
     return getUrl(`${EVERYTHING_URL}/${name}`);
   }
   else {
-    return getUrl(EVERYTHING_URL);
+    return getUrl(`${EVERYTHING_URL}`);
   }
 }
