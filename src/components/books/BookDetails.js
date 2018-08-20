@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getBook } from '../../services/booksApi';
-import { addFavorite, getFavorite } from '../../services/favoritesApi';
+import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
 
 class BookDetail extends Component {
 
@@ -32,13 +32,23 @@ class BookDetail extends Component {
   }
 
   handleClick = () => {
-    const { book } = this.state;
-    
-    addFavorite(this.state.book)
-      .then(favorite => {
-        this.setState({ favorite })
-      })
-      .catch(console.log);
+    const { book, favorite } = this.state;
+    const isFavorite = !!favorite;
+
+    if(isFavorite) {
+      removeFavorite(book.id)
+        .then(() => {
+          this.setState({ favorite: null });
+        })
+        .catch(console.log);
+    }
+    else {
+      addFavorite(this.state.book)
+        .then(favorite => {
+          this.setState({ favorite })
+        })
+        .catch(console.log);
+    }
   };
 
   render() {
@@ -53,7 +63,7 @@ class BookDetail extends Component {
         <h2>{volumeInfo.title}</h2>
         <img src={volumeInfo.imageLinks.medium}/>
         <button onClick={this.handleClick}>
-          Favorites
+          {favorite ? 'Remove From' : 'Add To'} Favorites
         </button>
       </article>
     );

@@ -26,4 +26,9 @@ export const getFavorites = () => {
 export const getFavorite = id => {
   const url = getFavoriteUrl(id);
   return get(url);
-}
+};
+
+export const removeFavorite = id => {
+  const url = getFavoriteUrl(id);
+  return del(url);
+};
