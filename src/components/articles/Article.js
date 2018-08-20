@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './Article.css';
 
 export default class Article extends Component {
 
@@ -13,10 +14,10 @@ export default class Article extends Component {
       const { Title, Year, Poster, imdbID } = article;
 
       return (
-        <li>
+        <li className={styles.article}>
           <Link to={`/articles/${imdbID}`}>
             <img src={Poster}/>
-            <h2><strong>{Title}</strong> ({Year})</h2> 
+            <p><strong>{Title}</strong> ({Year})</p> 
           </Link>
         </li>
       );
