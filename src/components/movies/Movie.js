@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './Article.css';
+import styles from './Movie.css';
 
-export default class Article extends Component {
+export default class Movie extends Component {
 
     static propTypes = {
-      article: PropTypes.object.isRequired
+      movie: PropTypes.object.isRequired
     };
 
     render() {
-      const { article } = this.props;
-      const { Title, Year, Poster, imdbID } = article;
+      const { movie } = this.props;
+      const { Title, Year, Poster, imdbID } = movie;
 
       return (
-        <li className={styles.article}>
-          <Link to={`/articles/${imdbID}`}>
+        <li className={styles.movie}>
+          <Link to={`/movies/${imdbID}`}>
             <img src={Poster}/>
             <p><strong>{Title}</strong> ({Year})</p> 
           </Link>

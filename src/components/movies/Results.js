@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
-import Articles from './Articles';
+import Movies from './Movies';
 import Paging from '../paging/Paging';
-import { search as searchMovies } from '../../services/newsApi';
+import { search as searchMovies } from '../../services/omdbApi';
 
 class Results extends Component {
 
     state = { 
-      articles: null,
+      movies: null,
       totalResults: 0,
       page: 1,
       perPage: 10,
@@ -95,7 +95,7 @@ class Results extends Component {
 
           <div>
             {movies 
-              ? <Articles articles={movies}/>
+              ? <Movies movies={movies}/>
               : <h1>Please enter a search to get started</h1>
             }
           </div>
