@@ -3,6 +3,7 @@ import { BrowserRouter as  Router, Switch, Route, Redirect } from 'react-router-
 import Header from './Header';
 import Home from './home/Home';
 import Results from './articles/Results';
+import ArticleDetail from './articles/ArticleDetail';
 import styles from './App.css';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/search" component={Results}/>
+              <Route exact path="/articles/:id" component={ArticleDetail}/>
               <Redirect to="/"/>
             </Switch>
           </main>
