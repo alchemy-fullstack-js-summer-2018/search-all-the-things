@@ -13,6 +13,7 @@ const get = url => {
 
   if(json) {
     const response = JSON.parse(json);
+    console.log('*****RESPONSE line 16', response);
     let res = Promise.resolve(response.albummatches.album);
     console.log('**** res', res);
     return res;
@@ -22,9 +23,9 @@ const get = url => {
   return fetch(url)
     .then(r => r.ok ? r.json() : r.json().then(throwJson))
     .then(response => {
-      const albumResults = response.albummatches.album;
-      window.localStorage.setItem(url, JSON.stringify(albumResults));
-      return albumResults;
+      // const albumResults = response.albummatches;
+      window.localStorage.setItem(url, JSON.stringify(response));
+      return response.albummatches;
     });
   
 };
