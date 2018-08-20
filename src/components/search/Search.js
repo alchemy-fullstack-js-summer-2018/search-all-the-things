@@ -43,7 +43,7 @@ class Search extends Component {
     return (
       <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
         <label>
-              Search For:&nbsp;
+              Search for:&nbsp;
           <input name="search" value={search} onChange={this.handleChangeSearch}/>
         </label>
         <button>Search</button>
