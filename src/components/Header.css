@@ -1,11 +1,18 @@
 :local(.header) {
     background: rgb(153, 11, 11);
-    padding: 5px;
+    padding: 10px;
+
      .header-container {
       display: flex;
-      align-items: center;
+      align-content: center;
+      justify-content: space-between;
+
+      .logo{
+        display: flex;
+        align-items: center;
+      }
     
-      h1 {
+       h1 {
         font-size: 14pt;
         color: white;
         text-shadow: 3px 3px 3px black;
@@ -14,4 +21,17 @@
      .search-container {
       padding: 10px;
     }
-  } 
+
+    nav{
+      ul{
+        margin: 0;
+        padding: 0;
+      }
+
+      li{
+      list-style-type: none;
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+ } 

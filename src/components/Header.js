@@ -11,22 +11,24 @@ class Header extends Component {
       <div className={styles.header}>
 
         <section className="header-container">
-          <h1>Movie Search</h1>
-        </section>
+          <div className="logo">
+            <h1>Movie Search</h1>
+          </div>
 
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/favorites">Favorites</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-          </ul>
-        </nav>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/favorites">Favorites</Link>
+              </li>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+            </ul>
+          </nav>
+        </section>
 
         <section className="search-container">
           <Route component={Search}/>
