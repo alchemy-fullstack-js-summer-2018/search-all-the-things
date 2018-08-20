@@ -13,7 +13,6 @@ const article = {
   'description': 'some description',
   'url': 'www.pdx.com',
   'urlToImage': 'picture.jpg',
-  'publishedAt': '2018-08-15T21:00:04Z'
 };
 
 describe('Article', () => {
