@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 //import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
-import Words from './Words';
+import Words from './Words/Words';
 
 class App extends Component {
 
