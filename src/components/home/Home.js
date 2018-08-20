@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import styles from './Home.css';
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        <h1>Welcome to Movie Search</h1>
-        <p>Get started by searching movies and shows in the search bar. Click on a movie to see a more detailed view and you can favorite any movie and show. And you can also get a list of all your favorite movies and shows by going to the favorites page.</p>
-        <p>Made by Mario and Injoong at <a href="https://github.com/Quintam26/search-all-the-things/tree/master">Github.</a></p>
+      <div className={styles.home}>
+        <h2>Welcome to Reaction Shot.</h2>
+        <p>This is a simple web app for browsing movies and shows. Get started by using the search bar to find a movie or a show that you&quot;re interested in.</p>
+        <p>Click on a movie to see a more detailed view and save the ones you like to your favorites. You can  get a list of all your favorites by going to the Favorites page.</p>
+        <footer>
+          <p>Made by Mario Quintana and Injoong Yoon. Source code can be found <a href="https://github.com/Quintam26/search-all-the-things/tree/master">here.</a></p>
+        </footer>
       </div>
     );
   }

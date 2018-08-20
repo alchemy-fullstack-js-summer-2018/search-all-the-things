@@ -55,13 +55,17 @@ export default class Article extends Component {
     const { movie, favorite } = this.state;
     if(!movie) return null;
 
-    const { Title, Poster, Year, Plot } = movie;
+    const { Title, Poster, Year, Plot, Runtime, Director, Actors } = movie;
 
     return (
       <div className={styles.articleDetail}>
         <img src={Poster}/>
-        <h2>{Title} ({Year})</h2>
-        <p>{Plot}</p>
+        <h2>{Title}</h2>
+        <p><strong>Released:</strong> {Year}</p>
+        <p><strong>Runtime:</strong> {Runtime}</p>
+        <p><strong>Director:</strong> {Director}</p>
+        <p><strong>Actors:</strong> {Actors}</p>
+        <p><strong>Synopsis:</strong> {Plot}</p>
         <button onClick={this.handleClick}>
           {favorite ? 'Remove from' : 'Add to' } Favorites
         </button>

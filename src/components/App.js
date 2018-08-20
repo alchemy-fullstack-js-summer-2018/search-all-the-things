@@ -5,7 +5,6 @@ import Home from './home/Home';
 import Results from './articles/Results';
 import ArticleDetail from './articles/ArticleDetail';
 import Favorites from './favorites/Favorites';
-import styles from './App.css';
 
 class App extends Component {
 
@@ -13,7 +12,7 @@ class App extends Component {
     
     return (
       <Router>
-        <div className={styles.app}>
+        <div>
           <header>
             <Header onSearch={this.handleSearch}/>
           </header>

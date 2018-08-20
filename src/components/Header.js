@@ -12,7 +12,7 @@ class Header extends Component {
 
         <section className="header-container">
           <div className="logo">
-            <h1>Movie Search</h1>
+            <h1>Reaction Shot</h1>
           </div>
 
           <nav>
