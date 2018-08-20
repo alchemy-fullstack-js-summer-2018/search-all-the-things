@@ -10,11 +10,11 @@ export default class Article extends Component {
 
   render() {
     const { movie } = this.props;
-    const { id, Title, Poster } = movie;
+    const { imdbID, Title, Poster } = movie;
 
     return (
       <li>
-        <Link to={`/articles/${id}`}>
+        <Link to={`/articles/${imdbID}`}>
           <img src={Poster}/>
           <h2>{Title}</h2>
         </Link>
