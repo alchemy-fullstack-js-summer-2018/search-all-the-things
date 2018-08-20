@@ -15,7 +15,7 @@ class Books extends Component {
     if(!books) return null;
 
     return (
-      <ul className={styles.books}>
+      <ul className={styles.books} id="books">
         {books.map((book, i) => (
           <Book key={i} book={book}/>
         ))}
