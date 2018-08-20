@@ -1,108 +1,32 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
-import Books from './books/Books';
-import Paging from './paging/Paging';
+import Results from './Results';
+import BookDetail from './books/BookDetails';
 import styles from './App.css';
-import { search as apiSearchBooks } from '../services/booksApi';
+import Home from './home/Home';
 
 class App extends Component {
 
-  state = {
-    data: null,
-    search: null,
-    page: 1,
-    perPage: 20,
-    totalItems: 0,
-    loading: false,
-    error: null
-  };
-
-  handleSearch = (term) => {
-    this.setState({ 
-      ...term,
-      page: 1 
-    }, () => {
-      console.log(`You searched for ${term.search}`);
-      this.searchBooks();
-    });
-    // this.searchBooks()
-    //   .then(results => {
-    //     this.setState({ data: results });
-    //     this.setState({ totalItems: results.totalItems });
-    //   });
-    console.log('****AFTER SEARCH*****');
-  };
-
-  handlePage = paging => {
-    this.setState(paging, () => {
-      this.searchBooks();
-    });
-  };
-
-  searchBooks() {
-    const { search, page, perPage } = this.state;
-    
-    this.setState({
-      loading: true,
-      error: null
-    });
-    
-    return apiSearchBooks({ search, page, perPage })
-    .then(
-      results => {
-        console.log(results);
-        this.setState({ data: results });
-        this.setState({ totalItems: results.totalItems });
-        },
-        err => {
-          this.setState({ error: err.message });
-        }
-      )
-      .then(() => {
-        this.setState({ loading: false });
-      });
-  }
-
   render() {
-    const { data, search, page, perPage, totalItems, loading, error } = this.state;
 
     return (
-      <div>
-        <h1>Alchemy Code Lab Library</h1>
-        <header>
-          <Header onSearch={this.handleSearch}/>
-        </header>
+      <Router>
+        <Fragment>
+          <header>
+            <h1>Alchemy Code Lab Library</h1>
+            <Header onSearch={this.handleSearch}/>
+          </header>
 
-        <main className={styles.app}>
-          {(loading || error) &&
-            <section className="notifications">
-              {loading && <div>Loading...</div>}            
-              {error && <div>{error}</div>}
-            </section>
-          }
-
-          <section>
-            {data &&
-            <Fragment>
-              <p>
-                Searching for &quot;{search}&quot;
-              </p>
-              <Paging 
-                page={page}
-                perPage={perPage}
-                totalResults={totalItems}
-                onPage={this.handlePage}
-              />
-            </Fragment>  
-            }
-
-            {data
-            ? <Books books={data.items}/>
-            : <p>Please enter a search to get started</p>
-            }
-          </section>
-        </main>
-      </div>
+          <main className={styles.app}>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/results" component={Results}/>
+              <Route exact path="/results/:id" component={BookDetail}/>
+            </Switch>
+          </main>
+        </Fragment>
+      </Router>
     );
   }
 }

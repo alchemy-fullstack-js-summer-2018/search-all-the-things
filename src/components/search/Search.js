@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import qs from 'query-string';
 import PropTypes from 'prop-types';
 import styles from './Search.css';
 
@@ -9,17 +10,37 @@ class Search extends Component {
   };
 
   static propTypes = {
-    onSearch: PropTypes.func.isRequired
+    history: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired
+  };
+
+  componentDidMount() {
+    const { location, match, history } = this.props;
+    // console.log('**HISTORY**', history);
+    // console.log('**MATCH**', match);
+    // console.log('**LOCATION**', location);
+    const { search = '' } = qs.parse(location.search);
+    this.setState({ search });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const { search } = this.state;
+    if(!search) return;
+
+    console.log('HANDLE SUBMIT HAPPEND');
+    const { history } = this.props;
+    history.push({
+      pathname: '/results',
+      search: qs.stringify({ search, page: 1, perPage: 20 })
+    });
   };
 
   handleChange = ({ target }) => {
     this.setState({ search: target.value });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.onSearch(this.state);
-  };
 
   render() {
     const { search } = this.state;

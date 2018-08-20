@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class Article extends Component {
@@ -9,6 +10,10 @@ class Article extends Component {
 
   render() {
     const { book } = this.props;
+    const url = book.selfLink;
+    const split = url.split('/');
+    console.log(split);
+    const id = split[split.length - 1];
 
     return (
       <li>
@@ -19,6 +24,9 @@ class Article extends Component {
           ? <img src={book.volumeInfo.imageLinks.thumbnail}/>
           : <p>No image was provided</p>
         }
+        <Link to={`/results/${id}`}>
+          View this books info
+        </Link>
       </li>
     );
   }
