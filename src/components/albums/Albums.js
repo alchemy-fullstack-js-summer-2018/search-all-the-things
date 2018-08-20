@@ -16,7 +16,7 @@ export default class Albums extends Component {
     return (
       <ul className={styles.albums}>
         {albums.map((album, i) => (
-          <Album key={i} album={album}/>
+          <Album key={i} imageKey={i} album={album}/>
         ))}
       </ul>
     );

@@ -22,7 +22,7 @@ const get = url => {
   return fetch(url)
     .then(r => r.ok ? r.json() : r.json().then(throwJson))
     .then(response => {
-      const albumResults = response.results;
+      const albumResults = response.albummatches.album;
       window.localStorage.setItem(url, JSON.stringify(albumResults));
       return albumResults;
     });
