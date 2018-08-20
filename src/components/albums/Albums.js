@@ -6,7 +6,7 @@ import styles from './Albums.css';
 export default class Albums extends Component {
 
   static propTypes = {
-    albums: PropTypes.object
+    albums: PropTypes.array
   };
 
   render() {

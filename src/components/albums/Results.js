@@ -52,11 +52,12 @@ class Results extends Component {
       error: null
     });
 
-    getAlbums()
+    getAlbums(search)
       .then(
-        ({ results }) => {
+        (results) => {
           this.setState({
-            albums: results
+            albums: results,
+            totalResults: results.length
           });
         },
         err => {

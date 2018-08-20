@@ -13,15 +13,17 @@ const get = url => {
 
   if(json) {
     const response = JSON.parse(json);
-    return Promise.resolve(response.results.albummatches.album);
+    let res = Promise.resolve(response.albummatches.album);
+    console.log('**** res', res);
+    return res;
+
   }
   
   return fetch(url)
     .then(r => r.ok ? r.json() : r.json().then(throwJson))
     .then(response => {
-      const albumResults = response.results.albummatches.album;
+      const albumResults = response.results;
       window.localStorage.setItem(url, JSON.stringify(albumResults));
-      console.log(albumResults);
       return albumResults;
     });
   
@@ -30,6 +32,6 @@ const get = url => {
 export default function search(search) {
   const query = `&album=${search}`;
   const EVERYTHING_URL = `${BASE_URL}${query}&${API_QUERY}`; 
-
+  console.log('*** Everything', EVERYTHING_URL);
   return get(`${EVERYTHING_URL}${query}`);
 }
