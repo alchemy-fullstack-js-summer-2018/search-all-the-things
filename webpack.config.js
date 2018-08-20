@@ -14,6 +14,9 @@ module.exports = {
     publicPath: '/'
   },
   mode: 'development',
+  node: { 
+    fs: 'empty' 
+  },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './${buildDir}',
