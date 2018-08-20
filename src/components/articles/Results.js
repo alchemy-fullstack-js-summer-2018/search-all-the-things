@@ -93,10 +93,12 @@ class Results extends Component {
             </Fragment>
           }
 
-          {movies 
-            ? <Articles articles={movies}/>
-            : <h1>Please enter a search to get started</h1>
-          }
+          <div>
+            {movies 
+              ? <Articles articles={movies}/>
+              : <h1>Please enter a search to get started</h1>
+            }
+          </div>
         </section>
       );
     }

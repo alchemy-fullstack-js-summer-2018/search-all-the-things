@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getMovies } from '../../services/newsApi';
 import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
+import styles from './ArticleDetail.css';
 
 export default class Article extends Component {
 
@@ -57,7 +58,7 @@ export default class Article extends Component {
     const { Title, Poster, Year, Plot } = movie;
 
     return (
-      <div>
+      <div className={styles.articleDetail}>
         <img src={Poster}/>
         <h2>{Title} ({Year})</h2>
         <p>{Plot}</p>
