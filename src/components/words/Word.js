@@ -12,9 +12,10 @@ export default class Word extends Component {
     return (
       <Fragment>
         <h2>{word.word}</h2>
+        <p>Source:</p>
+        <p>{word.attributionText}</p>
+        <p>Definition:</p>
         <li>{word.text}</li>
-        <li>{word.score}</li>
-        <li>{word.attributionText}</li>
       </Fragment>
     );
   }

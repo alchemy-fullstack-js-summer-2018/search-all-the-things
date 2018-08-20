@@ -58,7 +58,6 @@ class App extends Component {
         </header>
       
         <main>
-          <h2>App Main</h2>
           {(loading || error) &&
           <section className="notifications">
             {loading && <div>Loading...</div>}
@@ -66,11 +65,6 @@ class App extends Component {
           </section>}
 
           <section>
-            {search &&
-              <Fragment>
-                <h3> Word you searched for: </h3>
-              </Fragment>
-            }
 
             {words &&
               <Words words={words}/> 
