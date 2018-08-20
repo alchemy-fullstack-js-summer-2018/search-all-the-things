@@ -14,3 +14,16 @@ export const addFavorite = ({ id, volumeInfo }) => {
     thumbnail:  volumeInfo.imageLinks.thumbnail
   });
 };
+
+export const getFavorites = () => {
+  return get(`${FAVORITES_URL}.json`)
+    .then(response => {
+      return Object.keys(response)
+        .map(key => response[key]);
+    });
+};
+
+export const getFavorite = id => {
+  const url = getFavoriteUrl(id);
+  return get(url);
+}
