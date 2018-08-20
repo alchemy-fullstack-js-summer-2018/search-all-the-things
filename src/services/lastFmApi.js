@@ -1,19 +1,23 @@
-require('dotenv').config();
-const API_KEY = process.env.API_KEY;
-const API_QUERY = `method=album.search&album=moon&apiKey=${API_KEY}&format=json`;
+
+const API_KEY = '9ff12e67d0cd5b5a51730b280660b0fc';
+const API_QUERY = `method=album.search&album=moon&api_key=${API_KEY}&format=json`;
 import { get } from './request';
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
 const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`; 
 
 const getUrl = url => {
   const json = window.localStorage.getItem(url);
+  console.log(url);
+  console.log(BASE_URL, EVERYTHING_URL);
   if(json) {
     const response = JSON.parse(json);
     return Promise.resolve(response);
   }
 
   return get(url)
+    
     .then(response => {
+      console.log(response);
       window.localStorage.setItem(url, JSON.stringify(response));
       return response;
     });

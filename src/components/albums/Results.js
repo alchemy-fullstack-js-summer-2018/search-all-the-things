@@ -16,7 +16,7 @@ class Results extends Component {
     error: null
   };
 
-  static PropTypes = {
+  static propTypes = {
     location: PropTypes.object.isRequired
   };
 
