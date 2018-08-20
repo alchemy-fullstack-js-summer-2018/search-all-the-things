@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-//import { search as searchWords } from '../services/wordnikApi';
+import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
 import Words from './Words/Words';
@@ -21,6 +21,15 @@ class App extends Component {
       this.searchWords();
     });
   };
+
+  searchWords() {
+    const { search } = this.state;
+
+    this.setState({
+      loading: true,
+      error: null
+    });
+  }
 
   render() {
     const { words, search, loading, error } = this.state;
