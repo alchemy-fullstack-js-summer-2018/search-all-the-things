@@ -19,7 +19,6 @@ export default class Article extends Component {
     const { id } = this.props.match.params;
     getMovies(id)
       .then(movie => {
-        console.log(id);
         this.setState({ movie });
       })
       .catch(console.log);
@@ -36,7 +35,7 @@ export default class Article extends Component {
     const isFavorite = !!favorite;
 
     if(isFavorite) {
-      removeFavorite(movie.id)
+      removeFavorite(movie.imdbID)
         .then(() => {
           this.setState({ favorite: null });
         })
