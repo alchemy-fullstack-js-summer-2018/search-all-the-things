@@ -4,11 +4,27 @@ import Favorite from './Favorite';
 
 class Favorites extends Component {
 
+  state = {
+    favorites: null
+  }
+
+  componentDidMount() {
+    getFavorites()
+      .then(favorites => {
+        this.setState({ favorites })
+      })
+      .catch(console.log);
+  }
+
   render() {
+    const { favorites } = this.state;
+    if(!favorites) return null;
 
     return (
       <ul>
-
+        {favorites.map(favorite => {
+          return <Favorite key={favorite.id} book={favorite}/> 
+        })}
       </ul>
     );
   }
