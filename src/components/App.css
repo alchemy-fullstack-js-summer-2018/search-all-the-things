@@ -1,6 +1,6 @@
 :local(.app) {
   header {
-    color: blue;
+    color: rgb(93, 0, 255);
   }
 
   .notifications {
