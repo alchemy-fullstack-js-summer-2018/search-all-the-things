@@ -9,11 +9,11 @@ const throwJson = json => { throw json; };
 const get = url => {
   console.log('**** inside the get');
   const json = window.localStorage.getItem(url);
-  console.log('**** json', json);
+  
 
   if(json) {
     const response = JSON.parse(json);
-    return Promise.resolve(response);
+    return Promise.resolve(response.results.albummatches.album);
   }
   
   return fetch(url)
