@@ -32,6 +32,15 @@
       list-style-type: none;
       display: inline-block;
       margin-left: 5px;
+      font-size: 14pt;
+      padding-top: 15px;
     }
+
+    a{
+      text-decoration: none;
+      color: white;
+      text-shadow: 3px 3px 3px black;
+      padding: 5px;
+    } 
   }
  } 
