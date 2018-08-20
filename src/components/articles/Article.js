@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Article extends Component {
 
@@ -10,12 +10,14 @@ export default class Article extends Component {
 
     render() {
       const { article } = this.props;
-      const { Title, Year, Poster } = article;
+      const { Title, Year, Poster, imdbID } = article;
 
       return (
         <li>
-          <img src={Poster}/>
-          <h2><strong>{Title}</strong> ({Year})</h2> 
+          <Link to={`/articles/${imdbID}`}>
+            <img src={Poster}/>
+            <h2><strong>{Title}</strong> ({Year})</h2> 
+          </Link>
         </li>
       );
     }
