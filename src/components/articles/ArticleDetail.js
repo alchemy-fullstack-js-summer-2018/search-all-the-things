@@ -7,7 +7,7 @@ import { addFavorite, getFavorite, removeFavorite } from '../../services/favorit
 export default class Article extends Component {
 
   state = {
-    pokemon: null,
+    movie: null,
     favorite: null
   };
 
@@ -15,15 +15,16 @@ export default class Article extends Component {
     match: PropTypes.object.isRequired
   };
 
-  componentDimdbIDMount() {
-    const { imdbID } = this.props.match.params;
-    getMovies(imdbID)
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    getMovies(id)
       .then(movie => {
+        console.log(id);
         this.setState({ movie });
       })
       .catch(console.log);
 
-    getFavorite(imdbID)
+    getFavorite(id)
       .then(favorite => {
         this.setState({ favorite });
       })
@@ -31,18 +32,18 @@ export default class Article extends Component {
   }
 
   handleClick = () => {
-    const { article, favorite } = this.state;
+    const { movie, favorite } = this.state;
     const isFavorite = !!favorite;
 
     if(isFavorite) {
-      removeFavorite(article.imdbID)
+      removeFavorite(movie.id)
         .then(() => {
           this.setState({ favorite: null });
         })
         .catch(console.log);
     }
     else {
-      addFavorite(this.state.article)
+      addFavorite(this.state.movie)
         .then(favorite => {
           this.setState({ favorite });
         })
@@ -51,10 +52,10 @@ export default class Article extends Component {
   };
 
   render() {
-    const { article, favorite } = this.state;
-    if(!article) return null;
+    const { movie, favorite } = this.state;
+    if(!movie) return null;
 
-    const { Title, Poster, Year, Plot } = article;
+    const { Title, Poster, Year, Plot } = movie;
 
     return (
       <div>
