@@ -16,16 +16,17 @@ class Article extends Component {
 
     return (
       <li>
-        <h4>Your Book:</h4>
-        <p>{book.volumeInfo.title}</p>
-        <p>{book.volumeInfo.authors}</p>
         {book.volumeInfo.imageLinks 
-          ? <img src={book.volumeInfo.imageLinks.thumbnail}/>
-          : <p>No image was provided</p>
+          ? <img src={book.volumeInfo.imageLinks.thumbnail}  className="item-c"/>
+          : <p  className="item-c">No image was provided</p>
         }
-        <Link to={`/results/${id}`}>
-          View this books info
-        </Link>
+        <p className="item-a">{book.volumeInfo.title}</p>
+        <p className="item-b">{book.volumeInfo.authors}</p>
+        <p className="item-d">
+          <Link to={`/results/${id}`}>
+            View this books info
+          </Link>
+        </p>
       </li>
     );
   }
