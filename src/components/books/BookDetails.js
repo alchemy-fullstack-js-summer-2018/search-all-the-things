@@ -27,7 +27,6 @@ class BookDetail extends Component {
 
   handleClick = () => {
     const { book } = this.state;
-    console.log('****Book in this.handleClick****', book);
     
     addFavorite(this.state.book)
       .then(favorite => {
