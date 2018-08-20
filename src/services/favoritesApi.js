@@ -3,12 +3,12 @@ import { put, get, del } from './request';
 const URL = 'https://search-all-the-things-aa2cd.firebaseio.com/';
 const FAVORITES_URL = `${URL}/favorites`;
 
-const getFavoriteUrl = id => `${FAVORITES_URL}/id-${id}.json`;
+const getFavoriteUrl = mbid => `${FAVORITES_URL}/mbid-${mbid}.json`;
 
-export const addFavorite = ({ id, name, artist }) => {
-  const url = getFavoriteUrl(id);
+export const addFavorite = ({ mbid, name, artist }) => {
+  const url = getFavoriteUrl(mbid);
   return put(url, {
-    id, name, artist
+    mbid, name, artist
   });
 };
 
@@ -20,12 +20,12 @@ export const getFavorites = () => {
     });
 };
 
-export const getFavorite = id => {
-  const url = getFavoriteUrl(id);
+export const getFavorite = mbid => {
+  const url = getFavoriteUrl(mbid);
   return get(url);
 };
 
-export const removeFavorite = id => {
-  const url = getFavoriteUrl(id);
+export const removeFavorite = mbid => {
+  const url = getFavoriteUrl(mbid);
   return del(url);
 };

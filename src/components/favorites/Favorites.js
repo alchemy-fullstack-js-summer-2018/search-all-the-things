@@ -22,7 +22,7 @@ class Favorites extends Component {
     return (
       <ul>
         {favorites.map(favorite => {
-          return <Favorite key={favorite.id} album={favorite}/>;
+          return <Favorite key={favorite.mbid} album={favorite}/>;
         })}
       </ul>
     );
