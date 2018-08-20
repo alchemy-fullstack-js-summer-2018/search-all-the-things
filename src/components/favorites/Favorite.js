@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './Favorite.css';
 
-export default class Article extends Component {
+export default class Movie extends Component {
 
   static propTypes = {
     movie: PropTypes.object.isRequired
@@ -16,7 +16,7 @@ export default class Article extends Component {
     return (
       <div>
         <li className={styles.favorite}>
-          <Link to={`/articles/${imdbID}`}>
+          <Link to={`/movies/${imdbID}`}>
             <img src={Poster}/>
             <h2>{Title}</h2>
           </Link>
