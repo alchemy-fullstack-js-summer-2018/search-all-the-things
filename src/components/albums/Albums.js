@@ -6,11 +6,12 @@ import styles from './Albums.css';
 export default class Albums extends Component {
 
   static propTypes = {
-    albums: PropTypes.arrayOf(Object)
+    albums: PropTypes.array
   };
 
   render() {
     const { albums } = this.props;
+    if(!albums) return null;
 
     return (
       <ul className={styles.albums}>

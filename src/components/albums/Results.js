@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Albums from './Albums';
 import Paging from '../paging/Paging';
-import { getAlbums } from '../../services/lastFmApi';
+import getAlbums from '../../services/lastFmApi';
 
 class Results extends Component {
 

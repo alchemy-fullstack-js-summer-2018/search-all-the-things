@@ -1,33 +1,30 @@
+// import { get, search } from './request';
 
 const API_KEY = '9ff12e67d0cd5b5a51730b280660b0fc';
-const API_QUERY = `method=album.search&album=moon&api_key=${API_KEY}&format=json`;
-import { get } from './request';
-const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
-const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`; 
+const API_QUERY = `api_key=${API_KEY}&format=json`;
+const BASE_URL = 'https://ws.audioscrobbler.com/2.0/?method=album.search';
 
-const getUrl = url => {
+const throwJson = json => { throw json; };
+
+const get = url => {
   const json = window.localStorage.getItem(url);
-  console.log(url);
-  console.log(BASE_URL, EVERYTHING_URL);
   if(json) {
     const response = JSON.parse(json);
     return Promise.resolve(response);
   }
-
-  return get(url)
-    
+  
+  return fetch(url)
+    .then(r => r.ok ? r.json() : r.json().then(throwJson))
     .then(response => {
-      console.log(response);
       window.localStorage.setItem(url, JSON.stringify(response));
       return response;
     });
+  
 };
 
-export function getAlbums(name) {
-  if(name) {
-    return getUrl(`${EVERYTHING_URL}/${name}`);
-  }
-  else {
-    return getUrl(`${EVERYTHING_URL}`);
-  }
+export default function search({ search }) {
+  const query = `&album=${search}`;
+  const EVERYTHING_URL = `${BASE_URL}${query}&${API_QUERY}`; 
+
+  return get(`${EVERYTHING_URL}${query}`);
 }
