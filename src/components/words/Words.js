@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Word from './Words';
+import styles from './Words.css';
 
 export default class Words extends Component {
 

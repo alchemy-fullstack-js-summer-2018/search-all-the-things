@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 //import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
+import Words from './Words';
 
 class App extends Component {
 
@@ -32,7 +33,7 @@ class App extends Component {
         </header>
       
         <main>
-          <h2>do u see me? please see me yo.</h2>
+          <h2>App Main</h2>
           {(loading || error) &&
           <section className="notifications">
             {loading && <div>Loading...</div>}
