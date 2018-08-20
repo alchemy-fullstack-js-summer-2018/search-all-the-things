@@ -43,6 +43,9 @@ class Results extends Component {
   }
 
   searchAlbums() {
+    const search = this.searchTerm;
+
+    if(!search) return;
 
     this.setState({
       loading: true,
