@@ -8,9 +8,11 @@ exports[`App testing App renders as designed 1`] = `
     />
   </header>
   <main>
-    <p>
-      Enter a Search
-    </p>
+    <section>
+      <p>
+        Please enter a search to get started
+      </p>
+    </section>
   </main>
 </div>
 `;
