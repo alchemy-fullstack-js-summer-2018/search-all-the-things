@@ -12,5 +12,19 @@
   li {
     text-align: center;
   }
+
+  a {
+    color: rgb(62, 83, 175);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: yellow;
+  }
   
 }
