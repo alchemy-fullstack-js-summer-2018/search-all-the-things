@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addFavorite, removeFavorite, getFavorite } from '../../services/favoritesApi';
 import StarRatingComponent from 'react-star-rating-component';
+/* Star Rating Component created by voronianski https://github.com/voronianski/react-star-rating-component */
 
 
 class Article extends Component {
@@ -51,9 +52,6 @@ class Article extends Component {
     }
   };
 
-  onStarClick(nextValue) {
-    this.setState({rating: nextValue});
-  }
 
   render() {
     const { book } = this.props;
@@ -77,8 +75,7 @@ class Article extends Component {
           <StarRatingComponent
             name="rate1"
             starCount={5}
-            value={rating}
-            onStarClick={this.onStarClick.bind(this)}
+            value={book.volumeInfo.averageRating}
           />
         </div>
         <p className="item-d">
