@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Books from './books/Books';
 import qs from 'query-string';
 import Paging from './paging/Paging';
-// import styles from './App.css';
+import styles from './Results.css';
 import { search as apiSearchBooks } from '../services/booksApi';
 
 class Results extends Component {
@@ -50,11 +50,6 @@ class Results extends Component {
       console.log(`You searched for ${term.search}`);
       this.searchBooks();
     });
-    // this.searchBooks()
-    //   .then(results => {
-    //     this.setState({ data: results });
-    //     this.setState({ totalItems: results.totalItems });
-    //   });
     console.log('****AFTER SEARCH*****');
   };
 
@@ -93,28 +88,39 @@ class Results extends Component {
   }
 
   render() {
-    const { data, search, totalItems } = this.state;
+    const { data, search, totalItems, loading, error } = this.state;
 
     return (
-      <section>
-        {data &&
-        <Fragment>
-          <p>
-            Searching for &quot;{search.search}&quot;
-          </p>
-          <Paging 
-            page={+search.page}
-            perPage={+search.perPage}
-            totalResults={+totalItems}
-            onPage={this.handlePageChange}
-          />
-        </Fragment>  
-        }
-      
-        {data
-          ? <Books books={data}/>
-          : <p>Please enter a search to get started</p>
-        }
+      <section className={styles.results}>
+        <div>
+          {(loading || error) && 
+            <section className="notifications">
+              {loading && <div>Loading...</div>}
+              {error && <div>{error}</div>}
+            </section>
+          }
+        </div>
+
+        <div>
+          {data &&
+          <Fragment>
+            <p>
+              Searching for &quot;{search.search}&quot;
+            </p>
+            <Paging 
+              page={+search.page}
+              perPage={+search.perPage}
+              totalResults={+totalItems}
+              onPage={this.handlePageChange}
+            />
+          </Fragment>  
+          }
+        
+          {data
+            ? <Books books={data}/>
+            : <p>Please enter a search to get started</p>
+          }
+        </div>
       </section>
     );
   }
