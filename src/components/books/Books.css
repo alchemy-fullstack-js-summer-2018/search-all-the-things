@@ -17,13 +17,30 @@
     margin-bottom: 1px;
   }
 
+  a {
+    color: rgb(62, 83, 175);
+  }
+
+  a:hover {
+    color: yellow;
+  }
+
+  a:active {
+    color: blue;
+  }
+
   button:hover {
     cursor: pointer;
+  }
+
+  .title {
+    color: rgb(62, 83, 175);
   }
   
   .no-image {
     object-fit: contain;
     width: 175px;
   }
+
   
 }
