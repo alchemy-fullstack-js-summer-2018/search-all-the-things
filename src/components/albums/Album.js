@@ -18,9 +18,10 @@ export default class Album extends Component {
     return (
       <li className={styles.album}>
         <Link to={`/albums/${mbid}`}>
-          {`${name}, ${artist}, ${mbid}`}
           <img src={imageUrl} />
+          <p className ="title">{`${name}`}</p>
         </Link>
+        <p>{`By: ${artist}`}</p>
       </li>
     );
   }
