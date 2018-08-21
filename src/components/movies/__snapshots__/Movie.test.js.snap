@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Single Article test Renders as designed 1`] = `
+<li
+  className="movie"
+>
+  <Link
+    replace={false}
+    to="/movies/tt0083658"
+  >
+    <img
+      src="https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+    />
+    <p>
+      <strong>
+        Blade Runner
+      </strong>
+       (
+      1982
+      )
+    </p>
+  </Link>
+</li>
+`;
+
+exports[`Single Article test Renders without image 1`] = `
+<li
+  className="movie"
+>
+  <Link
+    replace={false}
+    to="/movies/tt0083658"
+  >
+    <img
+      src="https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+    />
+    <p>
+      <strong>
+        Blade Runner
+      </strong>
+       (
+      1982
+      )
+    </p>
+  </Link>
+</li>
+`;
