@@ -66,7 +66,7 @@ class BookDetail extends Component {
         <article className={styles.bookDetail}>
           <div id='image-div'>
             <button onClick={this.handleClick}>
-              {favorite ? 'Remove From' : 'Add To'} Favorites
+              {favorite ? '♥️' : '♡' } Favorites
             </button>
             {volumeInfo.imageLinks.medium 
               ? <img src={book.volumeInfo.imageLinks.medium}  className="item-c"/>
