@@ -6,4 +6,12 @@
     display: inline-block;
     margin-right: 30px;
   }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  .fav-button {
+    margin-bottom: 4px;
+  }
 }
