@@ -12,6 +12,14 @@
   li {
     text-align: center;
   }
+
+  p {
+    margin-bottom: 1px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
   
   .no-image {
     object-fit: contain;
