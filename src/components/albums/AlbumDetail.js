@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { albumDetails } from '../../services/lastFmApi';
+import { getAlbums, albumDetails } from '../../services/lastFmApi';
 import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
 import { Link } from 'react-router-dom';
 
@@ -18,12 +18,18 @@ export default class Album extends Component {
 
   componentDidMount() {
     const { mbid } = this.props.match.params;
-    albumDetails(mbid)
+    getAlbums(mbid)
       .then(album => {
         this.setState({ album });
       })
       .catch(console.log);
 
+    albumDetails(mbid)
+      .then(album => {
+        this.setState({ album });
+      })
+      .catch(console.log);
+    
     getFavorite(mbid)
       .then(favorite => {
         this.setState({ favorite });
