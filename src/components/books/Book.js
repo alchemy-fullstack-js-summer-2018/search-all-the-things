@@ -58,11 +58,14 @@ class Article extends Component {
 
     return (
       <li>
-        {book.volumeInfo.imageLinks 
-          ? <img src={book.volumeInfo.imageLinks.thumbnail}  className="item-c"/>
-          : <img src="http://www.moxmultisport.com/wp-content/uploads/no-image.jpg" className="no-image"/>
-        }
-        <p className="title">{book.volumeInfo.title}</p>
+        <Link to={`/results/${id}`}>
+          {book.volumeInfo.imageLinks 
+            ? <img src={book.volumeInfo.imageLinks.thumbnail}  className="item-c"/>
+            : <img src="http://www.moxmultisport.com/wp-content/uploads/no-image.jpg" className="no-image"/>
+          }
+          {book.volumeInfo.title ? <p className="title">{book.volumeInfo.title}</p> : <p>No title provided</p>}
+        </Link>
+
         {book.volumeInfo.authors
           ? <p>{book.volumeInfo.authors[0]}</p>
           : <p>{book.volumeInfo.authors}</p>
@@ -74,11 +77,6 @@ class Article extends Component {
             value={book.volumeInfo.averageRating}
           />
         </div>
-        <p className="item-d">
-          <Link to={`/results/${id}`}>
-            View this books info
-          </Link>
-        </p>
         <p>
           <button onClick={this.handleClick}>
             {favorite ? '♥️' : '♡'} Favorites

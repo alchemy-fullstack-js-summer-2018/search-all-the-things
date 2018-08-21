@@ -14,7 +14,7 @@ Requires Node v10 or later.
 ### How to use API
 * Connect to the server with `npm start`.
 * Click on the `🔍` to start your search.
-* On the `Results` page, click `View this books info` to preview your book.
+* On the `Results` page, click on a cover image or title to preview your book.
 * From the `Results` page and the book detail page, you can add books to your favorites by clicking on the `♡ Favorites` button. Go to the `Favorites` page to see a list of books you have selected. You can also remove books from this page by clicking the `♥️ Favorites` button again.
 
 ## Contributors

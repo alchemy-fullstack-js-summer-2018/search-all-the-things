@@ -36,6 +36,10 @@
   .title {
     color: rgb(62, 83, 175);
   }
+
+  .title:hover {
+    color: blue;
+  }
   
   .no-image {
     object-fit: contain;
