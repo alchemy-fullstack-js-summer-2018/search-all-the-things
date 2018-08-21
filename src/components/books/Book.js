@@ -7,10 +7,7 @@ import StarRatingComponent from 'react-star-rating-component';
 
 
 class Article extends Component {
-  constructor() {
-    super()
-  }
-
+  
   state = {
     favorite: null,
     rating: 1
@@ -22,7 +19,6 @@ class Article extends Component {
 
   componentDidMount() {
     const { id } = this.props.book;
-    console.log('***BOOK id***', id);
     
     getFavorite(id)
       .then(favorite => {
@@ -55,7 +51,7 @@ class Article extends Component {
 
   render() {
     const { book } = this.props;
-    const { favorite, rating } = this.state;
+    const { favorite } = this.state;
     const url = book.selfLink;
     const split = url.split('/');
     const id = split[split.length - 1];
