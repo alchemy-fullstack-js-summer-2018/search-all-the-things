@@ -6,6 +6,9 @@ import StarRatingComponent from 'react-star-rating-component';
 
 
 class Article extends Component {
+  constructor() {
+    super()
+  }
 
   state = {
     favorite: null,
@@ -48,8 +51,8 @@ class Article extends Component {
     }
   };
 
-  onStarClick({nextValue, prevValue, name}) {
-    this.setState({ rating: nextValue });
+  onStarClick(nextValue) {
+    this.setState({rating: nextValue});
   }
 
   render() {
@@ -75,7 +78,7 @@ class Article extends Component {
             name="rate1"
             starCount={5}
             value={rating}
-            onStarClick={this.onStarClick}
+            onStarClick={this.onStarClick.bind(this)}
           />
         </div>
         <p className="item-d">
