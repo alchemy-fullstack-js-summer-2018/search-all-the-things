@@ -7,6 +7,7 @@ import { search } from '../../services/wordnikApi';
 
 class Results extends Component {
 
+
   state = {
     words: null,
     loading: false,
@@ -14,16 +15,18 @@ class Results extends Component {
   };
 
   static propTypes = {
-    search: PropTypes.string
+    search: PropTypes.object.isRequired
   };
 
-  // handleSearch = search => {
-  //   this.setState({
-  //     ...search
-  //   }, () => {
-  //     this.searchWords();
-  //   });
-  // };
+  componentDidMount() {
+    this.searchWords(); 
+  }   
+
+  componentDidUpdate({ location }) {
+    const { search: oldSearch } = qs.parse(location.search);
+    if(oldSearch === this.searchTerm) return;
+    this.searchWords(); 
+  }   
 
   handlePage = paging => {
     this.setState(paging, () => {
