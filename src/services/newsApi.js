@@ -1,4 +1,4 @@
-const API_KEY = '00dd88bf5a1948f9b1ba74c1955997ad';
+const API_KEY = process.env.NEWS_API_KEY;//eslint-disable-line
 const API_QUERY = `apiKey=${API_KEY}`;
 const BASE_URL = 'https://newsapi.org/v2';
 const EVERYTHING_URL = `${BASE_URL}/everything?${API_QUERY}`;

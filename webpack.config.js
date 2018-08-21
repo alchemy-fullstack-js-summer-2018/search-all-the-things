@@ -1,12 +1,20 @@
 /* eslint-env node */
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 const { resolve } = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 
 const buildDir = 'docs';
 const path = resolve(__dirname, buildDir);
+const env = dotenv.config().parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 module.exports = {
+
   // start here
   entry: './src/index.js',
   // put the build output here (not dev server)
@@ -24,7 +32,8 @@ module.exports = {
   plugins: [
     // add plugins
     new CleanPlugin(`${path}/bundle.*.js`),
-    new HtmlPlugin({ template: './src/index.html' })
+    new HtmlPlugin({ template: './src/index.html' }),
+    new webpack.DefinePlugin(envKeys)
   ],
   module: {
     rules: [
