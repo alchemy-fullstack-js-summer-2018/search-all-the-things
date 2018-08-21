@@ -13,4 +13,9 @@
     text-align: center;
   }
   
+  .no-image {
+    object-fit: contain;
+    width: 175px;
+  }
+  
 }
