@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Words from './Words';
-import { search as searchWords } from '../services/wordnikApi';
+import { search as searchWords } from '../../services/wordnikApi';
 
 class Results extends Component {
 
