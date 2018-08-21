@@ -9,7 +9,8 @@ class Home extends Component {
         <p>This is a simple web app for browsing movies and shows. Get started by using the search bar to find a movie or a show that you&quot;re interested in.</p>
         <p>Click on a movie to see a more detailed view and save the ones you like to your favorites. You can  get a list of all your favorites by going to the Favorites page.</p>
         <footer>
-          <p>Made by Mario Quintana and Injoong Yoon. Source code can be found <a href="https://github.com/Quintam26/search-all-the-things/tree/master">here.</a></p>
+          <p>Mario Quintana &bull; Injoong Yoon</p>
+          <p>Source code can be found <a href="https://github.com/Quintam26/search-all-the-things/tree/master">here.</a></p>
         </footer>
       </div>
     );
