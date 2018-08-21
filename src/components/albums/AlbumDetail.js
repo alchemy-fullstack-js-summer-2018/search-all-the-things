@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getAlbums } from '../../services/lastFmApi';
+import { albumDetails } from '../../services/lastFmApi';
 import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ export default class Album extends Component {
 
   componentDidMount() {
     const { mbid } = this.props.match.params;
-    getAlbums(mbid)
+    albumDetails(mbid)
       .then(album => {
         this.setState({ album });
       })
@@ -67,6 +67,7 @@ export default class Album extends Component {
         <div>
           <Link to={`/albums/${mbid}`}>
             <img src={imageUrl} />
+            <p>{wiki.summary}</p>
             <p>{trackList}</p>
   
           </Link>
