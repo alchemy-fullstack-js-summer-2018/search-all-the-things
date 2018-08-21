@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { shallow, configure } from 'enzyme';
-import Articles from './Articles';
+import Movies from './Movies';
 import Adapter from 'enzyme-adapter-react-16';
 import toJSON from 'enzyme-to-json';
 
 configure({ adapter: new Adapter() });
 
-const articles = [{}, {}, {}];
+const movies = [{}, {}, {}];
 
-describe('Articles test', () => {
+describe('Movies test', () => {
     
-  it('Articles renders as designed', () => {
-    const wrapper = shallow(<Articles articles={articles}/>);
+  it('Movies renders as designed', () => {
+    const wrapper = shallow(<Movies movies={movies}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 
