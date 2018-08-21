@@ -16,7 +16,9 @@ export default class Movie extends Component {
       return (
         <li className={styles.movie}>
           <Link to={`/movies/${imdbID}`}>
-            <img src={Poster}/>
+            {Poster !== 'N/A'
+              ? <img src={Poster}/>
+              : <img src='https://www.nationalpetregister.org/assets/img/no-photo.jpg'/>}
             <p><strong>{Title}</strong> ({Year})</p> 
           </Link>
         </li>
