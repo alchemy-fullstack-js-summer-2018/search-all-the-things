@@ -14,7 +14,7 @@ class Results extends Component {
   };
 
   static propTypes = {
-    search: PropTypes.object.isRequired
+    location: PropTypes.object.isRequired
   };
 
   componentDidMount() {
