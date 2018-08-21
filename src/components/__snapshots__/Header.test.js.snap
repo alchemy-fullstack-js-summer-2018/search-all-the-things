@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header>
+  <div>
+    <i
+      className="far fa-moon"
+    />
+    <Link
+      replace={false}
+      to="/"
+    >
+      <h1>
+        Mystical Tutor
+      </h1>
+    </Link>
+  </div>
+  <nav>
+    <ul
+      id="nav-bar"
+    >
+      <li>
+        <Link
+          replace={false}
+          to="/results?page=1&pageSize=18"
+        >
+          Search
+        </Link>
+      </li>
+      <li>
+        <Link
+          replace={false}
+          to="/favorites"
+        >
+          Favorites
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
