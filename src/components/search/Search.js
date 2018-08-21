@@ -25,7 +25,6 @@ class Search extends Component {
     const { search } = this.state;
     if(!search) return;
 
-    console.log('HANDLE SUBMIT HAPPENED');
     const { history } = this.props;
     history.push({
       pathname: '/results',

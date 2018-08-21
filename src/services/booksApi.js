@@ -1,4 +1,3 @@
-//TODO: env?
 const BASE_URL = 'https://www.googleapis.com/books/v1';
 const VOLUMES_URL = `${BASE_URL}/volumes?`;
 const BOOK_URL = `${BASE_URL}/volumes`;
@@ -21,17 +20,13 @@ const get = url => {
 };
 
 export function search(searchParams) {
-  console.log('*****SEARCH*********', searchParams);
   const bookIndex = (searchParams.page * searchParams.perPage) - searchParams.perPage;
   const search = `&q=${searchParams.search}`;
   const paging = `&startIndex=${bookIndex}&maxResults=${searchParams.perPage}`;
 
-  //TODO: ${paging} logic
-  console.log('*****GET******', `${VOLUMES_URL}${search}${paging}`);
   return get(`${VOLUMES_URL}${search}${paging}`);
 }
 
 export function getBook(volumeId) {
-  console.log('*****getBook********', volumeId);
   return get(`${BOOK_URL}/${volumeId}`);
 }

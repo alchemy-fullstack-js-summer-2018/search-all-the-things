@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { getBook } from '../../services/booksApi';
 import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
 import styles from './BookDetails.css';
-// import striptags from 'striptags';
 
 class BookDetail extends Component {
 
@@ -19,10 +18,9 @@ class BookDetail extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log('***ID***', id);
+    
     getBook(id)
       .then(_book => {
-        console.log('***BOOK***', _book);
         this.setState({ book: _book, html: { __html: _book.volumeInfo.description } });
       })
       .catch(console.log);
@@ -58,7 +56,6 @@ class BookDetail extends Component {
     const { book, favorite, html } = this.state;
     if(!book) return null;
 
-    console.log(book);
     const volumeInfo = book.volumeInfo;
 
     return (

@@ -23,9 +23,6 @@ class Results extends Component {
   };
 
   componentDidMount() {
-    console.log('***LOCATION***', location);
-    console.log('***HISTORY***', history);
-    console.log('***MATCH***', this.state.match);
     this.searchBooks();
   }
 
@@ -47,10 +44,8 @@ class Results extends Component {
       ...term,
       page: 1
     }, () => {
-      console.log(`You searched for ${term.search}`);
       this.searchBooks();
     });
-    console.log('****AFTER SEARCH*****');
   };
 
   handlePageChange = page => {
@@ -65,7 +60,6 @@ class Results extends Component {
   
   searchBooks() {
     const search = this.searchTerm;
-    console.log('***HERE IS SEARCH***', search);
 
     this.setState({
       loading: true,
@@ -75,7 +69,6 @@ class Results extends Component {
     apiSearchBooks(search)
       .then(
         results => {
-          console.log(results);
           this.setState({ data: results.items, totalItems: results.totalItems, search: this.searchTerm });
         },
         err => {
