@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { search as searchWords } from '../services/wordnikApi';
 import Header from './Header';
 import styles from './App.css';
@@ -34,7 +34,6 @@ class App extends Component {
       loading: true,
       error: null
     });
-    console.log('HEYYYY', search);
 
     searchWords(search)
       .then(
@@ -49,8 +48,7 @@ class App extends Component {
   }
 
   render() {
-    const { words, search, loading, error } = this.state;
-    // const { page, perPage, totalResults } = this.state;
+    const { words, loading, error } = this.state;
     return (
       <div className={styles.app}>
         <header>
