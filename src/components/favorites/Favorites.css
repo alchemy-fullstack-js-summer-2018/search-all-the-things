@@ -1,4 +1,4 @@
-:local(.books) {
+:local(.favorites) {
 
   list-style: none;
   display: grid;
@@ -12,7 +12,7 @@
   li {
     text-align: center;
   }
-
+  
   p {
     margin-bottom: 1px;
   }
@@ -24,28 +24,11 @@
 
   a:hover {
     color: blue;
+    text-decoration: underline;
   }
 
   a:active {
     color: yellow;
-  }
-
-  button:hover {
-    cursor: pointer;
-  }
-
-  .title {
-    color: rgb(62, 83, 175);
-  }
-
-  .title:hover {
-    color: blue;
-    text-decoration: underline;
-  }
-  
-  .no-image {
-    object-fit: contain;
-    width: 175px;
   }
   
 }

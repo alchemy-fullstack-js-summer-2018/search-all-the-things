@@ -1,36 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
-import Books from './books/Books';
+import Results from './Results';
+import BookDetail from './books/BookDetails';
 import styles from './App.css';
-import { search } from '../services/booksApi';
+import Home from './home/Home';
+import Favorites from './favorites/Favorites';
 
 class App extends Component {
-
-  state = {
-    data: []
-  };
-
-  handleSearch = (term) => {
-    console.log(`You searched for ${term.search}`);
-
-    search(term)
-      .then(results => this.setState({ data: results }));
-    console.log('****AFTER SEARCH*****');
-  };
 
   render() {
 
     return (
-      <main className={styles.app}>
-        <h1>Alchemy Code Lab Library</h1>
-        <header>
-          <Header onSearch={this.handleSearch}/>
-        </header>
+      <Router>
+        <Fragment>
+          <header className={styles.app}>
+            <h2 id="title">Search all the books!</h2>
+            <Header onSearch={this.handleSearch}/>
+          </header>
 
-        <section>
-          <Books />
-        </section>
-      </main>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/favorites" component={Favorites}/>
+              <Route exact path="/results" component={Results}/>
+              <Route exact path="/results/:id" component={BookDetail}/>
+              <Redirect to='/'/>
+            </Switch>
+          </main>
+        </Fragment>
+      </Router>
     );
   }
 }

@@ -1,24 +1,41 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Search from './search/Search';
 import styles from './Header.css';
+import { Route, NavLink } from 'react-router-dom';
 
 class Header extends Component {
 
-  static propTypes = {
-    onSearch: PropTypes.func.isRequired
-  };
-
   render() {
-    const { onSearch } = this.props;
 
     return (
       <div className={styles.header}>
-
-        <h1>Header Component</h1>
-
+        <nav>
+          <ul id="nav-ul">
+            <li>
+              <NavLink 
+                to="/"
+                style={{ color: 'white', textDecoration: 'none' }} 
+                exact activeStyle={{ color: 'rgb(62, 83, 175)', textDecoration: 'underline' }}
+              >Home</NavLink>
+            </li>
+            <li>
+              <NavLink 
+                to="/results"
+                style={{ color: 'white', textDecoration: 'none' }} 
+                activeStyle={{ color: 'rgb(62, 83, 175)', textDecoration: 'underline' }}
+              >Results</NavLink>
+            </li>
+            <li>
+              <NavLink 
+                to="/favorites"
+                style={{ color: 'white', textDecoration: 'none' }} 
+                activeStyle={{ color: 'rgb(62, 83, 175)', textDecoration: 'underline' }}
+              >Favorites</NavLink>
+            </li>
+          </ul>
+        </nav>
         <section>
-          <Search onSearch={onSearch}/>
+          <Route component={Search}/>
         </section>
       </div>
     );

@@ -1,24 +1,32 @@
-//TODO: env?
 const BASE_URL = 'https://www.googleapis.com/books/v1';
 const VOLUMES_URL = `${BASE_URL}/volumes?`;
 const BOOK_URL = `${BASE_URL}/volumes`;
 
 const throwJson = json => { throw json; };
-const get = url => fetch(url)
-  .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
-export function search({ term/* , page, perPage */ }) {
-  console.log('*****SEARCH*********');
-  // const bookIndex = (page * perPage) - perPage;
-  const search = `&q=${term}`;
-  // const paging = `&maxResults=${perPage}&startIndex=${bookIndex}`;
+const get = url => {
+  const json = window.localStorage.getItem(url);
+  if(json) {
+    const response = JSON.parse(json);
+    return Promise.resolve(response);
+  }
 
-  //TODO: ${paging} logic
-  return get(`${VOLUMES_URL}${search}`);
+  return fetch(url)
+    .then(r => r.ok ? r.json() : r.json().then(throwJson))
+    .then(response => {
+      window.localStorage.setItem(url, JSON.stringify(response));
+      return response;
+    });
+};
+
+export function search(searchParams) {
+  const bookIndex = (searchParams.page * searchParams.perPage) - searchParams.perPage;
+  const search = `&q=${searchParams.search}`;
+  const paging = `&startIndex=${bookIndex}&maxResults=${searchParams.perPage}`;
+
+  return get(`${VOLUMES_URL}${search}${paging}`);
 }
 
 export function getBook(volumeId) {
-  console.log('*****getBook********');
-  return get(`${BOOK_URL}/${volumeId}`)
-    .then(r => r.books);
+  return get(`${BOOK_URL}/${volumeId}`);
 }
