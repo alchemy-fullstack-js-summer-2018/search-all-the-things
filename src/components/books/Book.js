@@ -19,10 +19,13 @@ class Article extends Component {
       <li>
         {book.volumeInfo.imageLinks 
           ? <img src={book.volumeInfo.imageLinks.thumbnail}  className="item-c"/>
-          : <p  className="item-c">No image was provided</p>
+          : <img src="http://www.moxmultisport.com/wp-content/uploads/no-image.jpg" className="no-image"/>
         }
         <p className="item-a">{book.volumeInfo.title}</p>
-        <p className="item-b">{book.volumeInfo.authors}</p>
+        {book.volumeInfo.authors
+          ? <p className="item-b">{book.volumeInfo.authors[0]}</p>
+          : <p className="item-b">{book.volumeInfo.authors}</p>
+        }
         <p className="item-d">
           <Link to={`/results/${id}`}>
             View this books info
