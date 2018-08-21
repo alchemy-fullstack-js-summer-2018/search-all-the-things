@@ -18,7 +18,7 @@ const getUrl = url => {
     });
 };
 
-export function search({ search }, { page = 1 }) {
+export function search({ search }, { page }) {
   const searchTerm = `&s=${search}`;
   const paging = `&page=${page}`;
 
