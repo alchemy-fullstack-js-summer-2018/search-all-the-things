@@ -15,10 +15,13 @@ class Favorite extends Component {
     return (
       <li>
         <Link to={`/results/${id}`}>
-          {title}
-          <p>{authors}</p>
-          <img src={thumbnail}/>
+          {thumbnail 
+            ? <img src={thumbnail}/>
+            : <img src="http://www.moxmultisport.com/wp-content/uploads/no-image.jpg" className="no-image"/>
+          }
+          {title ? <p>{title}</p> : <p>No title provided</p>}
         </Link>
+        {authors ? <p>{authors}</p> : <p>No authors provided</p>}
       </li>
     );
   }

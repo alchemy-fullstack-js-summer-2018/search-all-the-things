@@ -12,6 +12,10 @@
   li {
     text-align: center;
   }
+  
+  p {
+    margin-bottom: 1px;
+  }
 
   a {
     color: rgb(62, 83, 175);
