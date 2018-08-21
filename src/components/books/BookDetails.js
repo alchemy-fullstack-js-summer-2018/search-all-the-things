@@ -9,7 +9,8 @@ class BookDetail extends Component {
 
   state = {
     book: null,
-    favorite: null
+    favorite: null,
+    html: null
   };
 
   static propTypes = {
@@ -22,7 +23,7 @@ class BookDetail extends Component {
     getBook(id)
       .then(_book => {
         console.log('***BOOK***', _book);
-        this.setState({ book: _book });
+        this.setState({ book: _book, html: { __html: _book.volumeInfo.description } });
       })
       .catch(console.log);
 
@@ -54,7 +55,7 @@ class BookDetail extends Component {
   };
 
   render() {
-    const { book, favorite } = this.state;
+    const { book, favorite, html } = this.state;
     if(!book) return null;
 
     console.log(book);
@@ -75,7 +76,7 @@ class BookDetail extends Component {
           <div id='info-divs'>
             <h2>{volumeInfo.title}</h2>
             <h4>{volumeInfo.subtitle}</h4>
-            <p>{volumeInfo.description}</p>
+            <p dangerouslySetInnerHTML={html}></p>
             <p>Written by: {volumeInfo.authors[0]}</p>
             <p>Pages: {volumeInfo.pageCount}</p>
             <p>Rating: {volumeInfo.averageRating}</p>
