@@ -1,0 +1,22 @@
+:local(.results) {
+
+  .notifications {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    opacity: .5;
+    background: black;
+    color: white;
+    font-size: 2em;
+    align-items: center;
+    justify-content: center;
+    
+    * {
+      margin: 5px 10px;
+    }
+  }
+}
+
