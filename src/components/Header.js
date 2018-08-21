@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <div className={styles.header}>
         <section className="header-container">
-          <h1>Words and stuff</h1>
+          <h1>Search For A Word!</h1>
         </section>
 
         <section className="search-container">
