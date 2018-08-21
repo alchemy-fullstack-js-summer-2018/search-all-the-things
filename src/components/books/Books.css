@@ -22,11 +22,11 @@
   }
 
   a:hover {
-    color: yellow;
+    color: blue;
   }
 
   a:active {
-    color: blue;
+    color: yellow;
   }
 
   button:hover {
