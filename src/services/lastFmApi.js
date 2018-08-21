@@ -30,9 +30,17 @@ const get = url => {
   
 };
 
-export default function search(search) {
+export function search(search) {
   const query = `&album=${search}`;
   const EVERYTHING_URL = `${BASE_URL}${query}&${API_QUERY}`; 
   console.log('*** Everything', EVERYTHING_URL);
   return get(`${EVERYTHING_URL}${query}`);
+}
+
+export function albumDetails(mbid) {
+  let query = `&album=${search}`;
+
+  if(mbid) {
+    return getUrl(`${EVERYTHING_URL}${mbid}`);
+  } 
 }

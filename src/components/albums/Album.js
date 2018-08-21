@@ -13,13 +13,13 @@ export default class Album extends Component {
   render() {
     const { album } = this.props;
     const { name, artist, mbid, image } = album;
-    const imageUrl = image[2]['#text'];
+    const imageUrl = image[3]['#text'];
     
     return (
       <li className={styles.album}>
         <Link to={`/albums/${mbid}`}>
-          {`${name}, ${artist}`}
           <img src={imageUrl} />
+          {`${name}, ${artist}`}
         </Link>
       </li>
     );
