@@ -6,7 +6,6 @@ import Words from './Words';
 
 class Results extends Component {
 
-
   state = {
     words: null,
     totalResults: 0,
