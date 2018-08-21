@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies test Movies renders as designed 1`] = `
+<ul
+  className="movies"
+>
+  <Movie
+    key="0"
+    movie={Object {}}
+  />
+  <Movie
+    key="1"
+    movie={Object {}}
+  />
+  <Movie
+    key="2"
+    movie={Object {}}
+  />
+</ul>
+`;

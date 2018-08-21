@@ -16,7 +16,17 @@ exports[`App testing App renders as designed 1`] = `
         <Route
           component={[Function]}
           exact={true}
+          path="/favorites"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
           path="/search"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/movies/:id"
         />
         <Redirect
           push={false}

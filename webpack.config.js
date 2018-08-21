@@ -1,5 +1,4 @@
 /* eslint-env node */
-
 const { resolve } = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
