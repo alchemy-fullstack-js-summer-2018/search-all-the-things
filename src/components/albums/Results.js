@@ -41,17 +41,19 @@ class Results extends Component {
     const { search } = qs.parse(location.search);
     return search;
   }
-
+  
   searchAlbums() {
     const search = this.searchTerm;
-
+    
+    // console.log('*** search', search);
     if(!search) return;
-
+    
     this.setState({
       loading: true,
       error: null
     });
-
+    
+    // console.log('*** error.msg');
     getAlbums(search)
       .then(
         (results) => {
