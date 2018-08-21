@@ -64,12 +64,10 @@ class App extends Component {
 
           <section>
 
-            {words &&
-              <Words words={words}/> 
+            {words 
+              ? <Words words={words}/>
+              : <p>Please enter a word to define.</p>  
             }
-
-            
-
           </section>
         </main>
       </div>
