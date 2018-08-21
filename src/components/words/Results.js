@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Words from './Words';
 import { search as searchWords } from '../services/wordnikApi';
-import { search } from '../../services/wordnikApi';
 
 class Results extends Component {
 
 
   state = {
     words: null,
+    totalResults: 0,
     loading: false,
     error: null,
   };
@@ -28,56 +28,68 @@ class Results extends Component {
     this.searchWords(); 
   }   
 
-  handlePage = paging => {
-    this.setState(paging, () => {
-      this.searchWords();
-    });
-  };
+  //TO DO: PAGING
+  // handlePage = paging => {
+  //   this.setState(paging, () => {
+  //     this.searchWords();
+  //   });
+  // };
 
+  get searchTerm() {
+    const { location } = this.props;
+    const { search } = qs.parse(location.search);
+    return search;  
+  }
+  
   searchWords() {
-    const { search } = this.state;
+    const search = this.searchTerm;
+
+    if(!search) return;
 
     this.setState({
       loading: true,
       error: null
     });
 
-    searchWords(search)
+    search(search)
       .then(
         (words) => {
           this.setState({ words });
+        },
+        err => {
+          this.setState({ error: err.message });
         }
       )
       .then(() => {
         this.setState({ loading: false });
       });
-      
-
   }
 
   render() {
-    const { search } = this.props;
     const { words, loading, error } = this.state;
+    const { totalResults } = this.state;
+    const { searchTerm } = this;
 
     return (
-      <Fragment>
-
-        <section>
-          {(loading || error) &&
+      
+      <section>
+        {(loading || error) &&
           <section className="notifications">
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
-          </section>}
-        </section>
+          </section>
+        }
+        {searchTerm &&
+            <Fragment>
+              <p>You Searched For: &quot;{searchTerm}&quot;</p>
+            </Fragment>
+        }
 
-        <section>
-          {words 
-            ? <Words words={words}/>
-            : <p>Please enter a word to define.</p>  
-          }
-        </section>
-
-      </Fragment>
+        {words 
+          ? <Words words={words}/>
+          : <p>Please enter a word to define.</p>  
+        }
+      </section>
     );
   }
 }
