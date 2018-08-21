@@ -18,7 +18,7 @@ export default class Movie extends Component {
         <li className={styles.favorite}>
           <Link to={`/movies/${imdbID}`}>
             <img src={Poster}/>
-            <h2>{Title}</h2>
+            <p><strong>{Title}</strong></p>
           </Link>
         </li>
       </div>

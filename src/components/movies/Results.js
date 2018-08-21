@@ -10,13 +10,13 @@ class Results extends Component {
     state = { 
       movies: null,
       totalResults: 0,
-      page: 1,
       perPage: 10,
       loading: false,
       error: null,
     };
 
     static propTypes = {
+      history: PropTypes.object.isRequired,
       location: PropTypes.object.isRequired
     };
 
@@ -25,16 +25,28 @@ class Results extends Component {
     }
 
     componentDidUpdate({ location }) {
+      const { page: oldPage } = qs.parse(location.search);
       const { search: oldSearch } = qs.parse(location.search);
-      if(oldSearch === this.searchTerm) return;
-      this.searchMovies();
+      if(oldSearch !== this.searchTerm || oldPage !== this.searchPage) this.searchMovies();
     }
 
     handlePage = paging => {
       this.setState(paging, () => {
-        this.searchMovies();
+        const { perPage } = this.state;
+        const search = this.searchTerm;
+        const { page } = paging;
+        const { history } = this.props;
+        history.push({
+          search: qs.stringify({ search, page, perPage })
+        });
       });
     };
+
+    get searchPage() {
+      const { location } = this.props;
+      const { page } = qs.parse(location.search);
+      return page;
+    }
 
     get searchTerm() {
       const { location } = this.props;
@@ -43,19 +55,20 @@ class Results extends Component {
     }
 
     searchMovies() {
-      const { page, perPage } = this.state;
+      const { perPage } = this.state;
+      const page = parseInt(this.searchPage);
       const search = this.searchTerm;
       if(!search) return;
 
       this.setState({
         loading: true,
         error: null
-      }); 
-
+      });
+      
       searchMovies({ search }, { page, perPage })
         .then(
           ({ Search, totalResults }) => {
-            this.setState({ movies: Search, totalResults });
+            this.setState({ movies: Search, totalResults, page });
           },
           err => {
             this.setState({ error: err.message });
@@ -69,7 +82,7 @@ class Results extends Component {
     render() {
 
       const { movies, loading, error } = this.state;
-      const { page, perPage, totalResults } = this.state;
+      const { perPage, totalResults } = this.state;
       const { searchTerm } = this;
 
       return (
@@ -85,7 +98,7 @@ class Results extends Component {
             <Fragment>
               <p>Searching for &quot;{searchTerm}&quot;</p>
               <Paging 
-                page={page}
+                page={+this.searchPage}
                 perPage={perPage}
                 totalResults={parseInt(totalResults)}
                 onPage={this.handlePage}

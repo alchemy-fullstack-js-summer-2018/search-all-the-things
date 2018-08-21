@@ -11,7 +11,7 @@ class Search extends Component {
 
   static propTypes = {
     history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired
+    location: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
@@ -28,9 +28,8 @@ class Search extends Component {
     const { history } = this.props;
     history.push({
       pathname: '/search',
-      search: qs.stringify({ search })
+      search: qs.stringify({ search, page: 1 })
     });
-
   };
 
   handleChangeSearch = ({ target }) => {
