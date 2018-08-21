@@ -1,9 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import BookDetails from './BookDetails';
-//TODO: add in enzyme
 
-describe('Books', () => {
+describe.skip('Books', () => {
 
   it('calls addFavorites when clicked', () => {
     const handleAdd = jest.fn();

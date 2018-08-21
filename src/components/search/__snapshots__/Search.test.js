@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Search from './Search';
 
-describe('Search', () => {
+describe.skip('Search', () => {
 
   it('calls onSearch with criteria entered', () => {
     const handleSearch = jest.fn();
