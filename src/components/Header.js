@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Search from './search/Search';
 import styles from './Header.css';
-import { Link, Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -12,13 +12,25 @@ class Header extends Component {
         <nav>
           <ul id="nav-ul">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink 
+                to="/"
+                style={{ color: 'white', textDecoration: 'none' }} 
+                exact activeStyle={{ color: 'rgb(62, 83, 175)', textDecoration: 'underline' }}
+              >Home</NavLink>
             </li>
             <li>
-              <Link to="/results">Results</Link>
+              <NavLink 
+                to="/results"
+                style={{ color: 'white', textDecoration: 'none' }} 
+                activeStyle={{ color: 'rgb(62, 83, 175)', textDecoration: 'underline' }}
+              >Results</NavLink>
             </li>
             <li>
-              <Link to="/favorites">Favorites</Link>
+              <NavLink 
+                to="/favorites"
+                style={{ color: 'white', textDecoration: 'none' }} 
+                activeStyle={{ color: 'rgb(62, 83, 175)', textDecoration: 'underline' }}
+              >Favorites</NavLink>
             </li>
           </ul>
         </nav>
