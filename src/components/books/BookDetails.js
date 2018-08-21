@@ -65,9 +65,11 @@ class BookDetail extends Component {
       <Fragment>
         <article className={styles.bookDetail}>
           <div id='image-div'>
-            <button onClick={this.handleClick}>
-              {favorite ? '♥️' : '♡' } Favorites
-            </button>
+            <p className="fav-button">
+              <button onClick={this.handleClick}>
+                {favorite ? '♥️' : '♡' } Favorites
+              </button>
+            </p>
             {volumeInfo.imageLinks.medium 
               ? <img src={book.volumeInfo.imageLinks.medium}  className="item-c"/>
               : <img src="http://www.moxmultisport.com/wp-content/uploads/no-image.jpg" className="no-image"/>

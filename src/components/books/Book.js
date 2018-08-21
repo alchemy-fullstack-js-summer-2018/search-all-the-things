@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addFavorite, removeFavorite, getFavorite } from '../../services/favoritesApi';
+import StarRatingComponent from 'react-star-rating-component';
+/* Star Rating Component created by voronianski https://github.com/voronianski/react-star-rating-component */
 
 
 class Article extends Component {
+  constructor() {
+    super()
+  }
 
   state = {
-    favorite: null
+    favorite: null,
+    rating: 1
   };
 
   static propTypes = {
@@ -46,9 +52,10 @@ class Article extends Component {
     }
   };
 
+
   render() {
     const { book } = this.props;
-    const { favorite } = this.state;
+    const { favorite, rating } = this.state;
     const url = book.selfLink;
     const split = url.split('/');
     const id = split[split.length - 1];
@@ -64,6 +71,13 @@ class Article extends Component {
           ? <p className="item-b">{book.volumeInfo.authors[0]}</p>
           : <p className="item-b">{book.volumeInfo.authors}</p>
         }
+        <div>
+          <StarRatingComponent
+            name="rate1"
+            starCount={5}
+            value={book.volumeInfo.averageRating}
+          />
+        </div>
         <p className="item-d">
           <Link to={`/results/${id}`}>
             View this books info

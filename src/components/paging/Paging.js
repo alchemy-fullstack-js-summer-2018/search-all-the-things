@@ -24,7 +24,6 @@ class Paging extends Component {
     
     return (
       <div>
-        <h4>Paging Component</h4>
         <span>Page {page} of {totalPages}</span>
         &nbsp;
         <button onClick={() => this.handlePage(-1)} disable={page === 1}>&lt; Prev</button>
