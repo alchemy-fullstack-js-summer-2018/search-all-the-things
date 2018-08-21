@@ -19,6 +19,7 @@
 
   a {
     color: rgb(62, 83, 175);
+    text-decoration: none;
   }
 
   a:hover {
@@ -39,12 +40,12 @@
 
   .title:hover {
     color: blue;
+    text-decoration: underline;
   }
   
   .no-image {
     object-fit: contain;
     width: 175px;
   }
-
   
 }
