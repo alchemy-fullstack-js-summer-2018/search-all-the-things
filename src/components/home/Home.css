@@ -2,10 +2,24 @@
 
   .icon-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    margin-left: 200px;
   }
 
   .pic-div{
+    text-align: center;
+  }
+
+  #app-bio {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 330px;
+    margin-right: 330px;
+    font-size: 1.3em;
+    text-align: justify;
+  }
+
+  h3 {
     text-align: center;
   }
 
