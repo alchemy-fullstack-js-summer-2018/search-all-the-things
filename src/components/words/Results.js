@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
 import Words from './Words';
-import { search as searchWords } from '../../services/wordnikApi';
+//import { search as searchWords } from '../../services/wordnikApi';
 
 class Results extends Component {
 
@@ -67,7 +67,7 @@ class Results extends Component {
 
   render() {
     const { words, loading, error } = this.state;
-    const { totalResults } = this.state;
+    //const { totalResults } = this.state;
     const { searchTerm } = this;
 
     return (
