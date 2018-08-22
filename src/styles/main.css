@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(26, 13, 65);
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border: 1px solid black;
+  background: rgb(243, 239, 239);
+  padding: 10px;
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}

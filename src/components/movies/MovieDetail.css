@@ -1,0 +1,35 @@
+:local(.movieDetail) {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background: #eee;
+  width: 475px;
+  height: 700px;
+  border-radius: 5px;
+
+  img {
+      width: 225px;
+      height: auto;
+  }
+
+  h2 {
+    margin: 5px;
+  }
+
+  p {
+    margin: 5px;
+    align-items: flex-start;
+  }
+
+  img {
+    margin: 5px;
+  }
+
+  button {
+    margin-top: 20px;
+    align-items: flex-start;
+  }
+}
