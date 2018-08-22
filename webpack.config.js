@@ -11,12 +11,13 @@ module.exports = {
   output: {
     path, 
     filename: 'bundle.[hash].js',
-    publicPath: ''
+    publicPath: '/'
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: `./${buildDir}`
+    contentBase: `./${buildDir}`,
+    historyApiFallback: true
   },
   plugins: [
     new CleanPlugin(`${path}/bundle.*.js`),
@@ -30,18 +31,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ['env', {
-                targets: {
-                  browsers: 'Chrome 65'
-                }
-              }],
-              'react'
-            ],
-            plugins: [
-              require('babel-plugin-transform-object-rest-spread'),
-              require('babel-plugin-transform-class-properties')
-            ],
             cacheDirectory: true
           }
         }
