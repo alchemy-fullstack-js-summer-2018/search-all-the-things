@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article renders correctly 1`] = `
+<li>
+  <h2>
+    some text
+  </h2>
+  <p>
+    by 
+    that guy
+    , published on 
+    Invalid Date
+  </p>
+  <p>
+    some description
+  </p>
+  <a
+    href="www.pdx.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Read more
+  </a>
+  <p
+    className="image"
+  >
+    <img
+      src="picture.jpg"
+    />
+  </p>
+</li>
+`;
+
+exports[`Article renders without image 1`] = `
+<li>
+  <h2>
+    some text
+  </h2>
+  <p>
+    by 
+    that guy
+    , published on 
+    Invalid Date
+  </p>
+  <p>
+    some description
+  </p>
+  <a
+    href="www.pdx.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Read more
+  </a>
+</li>
+`;
