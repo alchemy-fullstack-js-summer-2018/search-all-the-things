@@ -1,0 +1,17 @@
+:local(.app) {
+  padding: 20px;
+  margin: 10px;
+  margin-top: 20px;
+  color: white;
+  background-color: #85bb65;
+  border-radius: 10px;
+
+  a {
+    color: black;
+    text-decoration: none; 
+  }
+
+  a:hover {
+    color: #f4ec0a;
+  }
+}
