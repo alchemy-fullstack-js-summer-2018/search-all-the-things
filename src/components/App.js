@@ -6,7 +6,6 @@ import Results from './albums/Results';
 import AlbumDetail from './albums/AlbumDetail';
 import Favorites from './favorites/Favorites';
 import styles from './App.css';
-// import Albums from './albums/Album'; 
 
 class App extends Component {
 
