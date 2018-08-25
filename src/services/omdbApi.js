@@ -5,7 +5,7 @@ const BASE_URL = 'http://www.omdbapi.com/?i=tt3896198';
 const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`;
 
 const getUrl = url => {
-  const json = window.localStorage.getItem(url)
+  const json = window.localStorage.getItem(url);
   if(json) {
     const response = JSON.parse(json);
     return Promise.resolve(response);
