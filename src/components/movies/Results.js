@@ -52,13 +52,6 @@ class Results extends Component {
     const { search } = qs.parse(location.search);
     return search;
   }
-<<<<<<< HEAD
-  
-  searchAlbums() {
-    const search = this.searchTerm;
-    
-    // console.log('*** search', search);
-=======
 
   searchMovies() {
     const { perPage } = this.state;
@@ -66,21 +59,14 @@ class Results extends Component {
     const search = this.searchTerm;
     if(!search) return;
 
->>>>>>> lab2-3
     if(!search) return;
     
     this.setState({
       loading: true,
       error: null
     });
-<<<<<<< HEAD
-    
-    // console.log('*** error.msg');
-    getAlbums(search)
-=======
 
     searchMovies({ search }, { page, perPage })
->>>>>>> lab2-3
       .then(
         ({ Search, totalResults }) => {
           this.setState({ movies: Search, totalResults, page });
