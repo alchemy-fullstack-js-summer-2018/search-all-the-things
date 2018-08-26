@@ -1,8 +1,8 @@
 import { get } from './request';
 const API_KEY = 'd559a426';
 const API_QUERY = `apikey=${API_KEY}`;
-const BASE_URL = 'https://www.omdbapi.com';
-const EVERYTHING_URL = `${BASE_URL}/?${API_QUERY}`;
+const BASE_URL = 'http://www.omdbapi.com/?i=tt3896198';
+const EVERYTHING_URL = `${BASE_URL}&${API_QUERY}`;
 
 const getUrl = url => {
   const json = window.localStorage.getItem(url);

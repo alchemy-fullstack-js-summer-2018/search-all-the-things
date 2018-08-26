@@ -6,7 +6,6 @@ import Results from './movies/Results';
 import MovieDetail from './movies/MovieDetail';
 import Favorites from './favorites/Favorites';
 import styles from './App.css';
-// import Albums from './albums/Album'; 
 
 class App extends Component {
 
@@ -23,7 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/favorites" component={Favorites}/>
-              <Route exact path="/movies" component={Results}/>
+              <Route exact path="/search" component={Results}/>
               <Route exact path="/movies/:id" component={MovieDetail}/>
               <Redirect to="/"/>
             </Switch>

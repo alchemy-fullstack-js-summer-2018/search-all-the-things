@@ -27,8 +27,8 @@ class Search extends Component {
     
     const { history } = this.props;
     history.push({
-      pathname: '/albums',
-      search: qs.stringify({ search })
+      pathname: '/search',
+      search: qs.stringify({ search, page: 1 })
     });
   };
 
@@ -43,7 +43,7 @@ class Search extends Component {
       <form className="search-form" onSubmit={event => this.handleSubmit(event)}>
         <label>
           Search For: &nbsp;
-          <input value={search} onChange={this.handleChangeSearch}/>
+          <input name={search} value={search} onChange={this.handleChangeSearch}/>
         </label>
         <button>Search</button>
       </form>

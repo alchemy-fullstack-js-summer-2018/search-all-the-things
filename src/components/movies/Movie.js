@@ -7,7 +7,7 @@ import logo from '../../assets/logo.png';
 export default class Movie extends Component {
 
   static propTypes = {
-    album: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired
   };
 
   render() {
