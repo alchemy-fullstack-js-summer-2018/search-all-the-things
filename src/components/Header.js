@@ -12,7 +12,7 @@ class Header extends Component {
       <div className={styles.header}>  
         <section className="header-container">
           <div className="logo"><img src={logo}/>
-            <h1>Album Search</h1>
+            <h1>Movie Search</h1>
           </div> 
           <nav>
             <ul>
@@ -23,7 +23,7 @@ class Header extends Component {
                 <Link to="/favorites">Favorites</Link>
               </li>
               <li>
-                <Link to="/albums">Search Albums</Link>
+                <Link to="/albums">Search Movies</Link>
               </li>
             </ul>
           </nav>
