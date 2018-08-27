@@ -36,7 +36,7 @@ export default class Movie extends Component {
     const isFavorite = !!favorite;
 
     if(isFavorite) {
-      removeFavorite(movie.id)
+      removeFavorite(movie.imdbID)
         .then(() => {
           this.setState({ favorite: null });
         })

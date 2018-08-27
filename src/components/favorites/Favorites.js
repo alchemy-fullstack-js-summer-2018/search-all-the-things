@@ -1,3 +1,4 @@
+/* eslint no-console: off */
 import React, { Component } from 'react';
 import { getFavorites } from '../../services/favoritesApi';
 import Favorite from './Favorite';

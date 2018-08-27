@@ -10,6 +10,7 @@ class Header extends Component {
 
     return (
       <div className={styles.header}>  
+
         <section className="header-container">
           <div className="logo"><img src={logo}/>
             <h1>Movie Finder</h1>
@@ -23,11 +24,12 @@ class Header extends Component {
                 <Link to="/favorites">Favorites</Link>
               </li>
               <li>
-                <Link to="/movies">Search Movies</Link>
+                <Link to="/search">Search Movies</Link>
               </li>
             </ul>
           </nav>
         </section> 
+        
         <section className="search-container">
           <Route component={Search}/>
         </section>
