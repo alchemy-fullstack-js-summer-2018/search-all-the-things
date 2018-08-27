@@ -20,15 +20,15 @@ const getUrl = url => {
 };
 
 export function search({ search }, { page }) {
-  const searchTerm = `&s=${search}`;
+  const searchTerm = `?s=${search}`;
   const paging = `&page=${page}`;
 
-  return get(`${EVERYTHING_URL}${searchTerm}${paging}`);
+  return get(`${BASE_URL}${searchTerm}&${API_QUERY}${paging}`);
 }
 
 export function getMovies(id) {
   if(id) {
-    return getUrl(`${EVERYTHING_URL}?i=${id}${API_QUERY}`);
+    return getUrl(`${BASE_URL}?i=${id}${API_QUERY}`);
   }
   else {
     return getUrl(EVERYTHING_URL);

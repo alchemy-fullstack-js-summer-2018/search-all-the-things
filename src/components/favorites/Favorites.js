@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { getFavorites } from '../../services/favoritesApi';
 import Favorite from './Favorite';
-import styles from './Favorites.css';
 
 class Favorites extends Component {
   state = {
@@ -23,7 +22,7 @@ class Favorites extends Component {
 
     return (
       <div>
-        <ul className={styles.favorites}>
+        <ul>
           {favorites.map(favorite => {
             return <Favorite key={favorite.imdbID} movie={favorite}/>;
           })}

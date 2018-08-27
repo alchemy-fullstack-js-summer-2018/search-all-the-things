@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getMovies } from '../../services/omdbApi';
 import { addFavorite, getFavorite, removeFavorite } from '../../services/favoritesApi';
-import styles from './MovieDetail.css';
-
 
 export default class Movie extends Component {
 
@@ -57,10 +55,8 @@ export default class Movie extends Component {
 
     const { Title, Poster, Year, Plot, Runtime, Director, Actors } = movie;
     
-
-
     return (
-      <div className={styles.movieDetail}>
+      <div>
         <img src={Poster}/>
         <h2>{Title}</h2>
         <p><strong>Released:</strong> {Year}</p>
