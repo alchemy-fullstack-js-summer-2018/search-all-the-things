@@ -12,11 +12,11 @@ export default class Movie extends Component {
 
   render() {
     const { movie } = this.props;
-    const { Title, Year, Poster, imbdID } = movie;
+    const { Title, Year, Poster, imdbID } = movie;
     
     return (
       <li className={styles.movie}>
-        <Link to={`/movies/${imbdID}`}>
+        <Link to={`/movies/${imdbID}`}>
           {Poster !== 'N/A'
             ? <img src={Poster}/>
             : <img src={logo}/>}
