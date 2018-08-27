@@ -1,66 +1,75 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import qs from 'query-string';
-import Albums from './Albums';
+import Movies from './Movies';
 import Paging from '../paging/Paging';
-import getAlbums from '../../services/lastFmApi';
+import { search as searchMovies } from '../../services/omdbApi';
 
 class Results extends Component {
 
   state = {
-    albums: null,
+    movies: null,
     totalResults: 0,
-    page: 1,
     perPage: 10,
     loading: false,
     error: null
   };
 
   static propTypes = {
+    history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired
   };
 
   componentDidMount() {
-    this.searchAlbums();
+    this.searchMovies();
   }
 
   componentDidUpdate({ location }) {
+    const { page: oldPage } = qs.parse(location.search);
     const { search: oldSearch } = qs.parse(location.search);
-    if(oldSearch === this.searchTerm) return;
-    this.searchAlbums();
+    if(oldSearch !== this.searchTerm || oldPage !== this.searchPage) this.searchMovies();
   }
 
   handlePage = paging => {
     this.setState(paging, () => {
-      this.searchAlbums();
+      const { perPage } = this.state;
+      const { search } = this.searchTerm;
+      const { page } = paging;
+      history.pushState({
+        search: qs.stringify({ search, page, perPage })
+      });
     });
   };
+
+  get searchPage() {
+    const { location } = this.props;
+    const { page } = qs.parse(location.search);
+    return page;
+  }
 
   get searchTerm() {
     const { location } = this.props;
     const { search } = qs.parse(location.search);
     return search;
   }
-  
-  searchAlbums() {
+
+  searchMovies() {
+    const { perPage } = this.state;
+    const page = parseInt(this.searchPage);
     const search = this.searchTerm;
-    
-    // console.log('*** search', search);
+    if(!search) return;
+
     if(!search) return;
     
     this.setState({
       loading: true,
       error: null
     });
-    
-    // console.log('*** error.msg');
-    getAlbums(search)
+
+    searchMovies({ search }, { page, perPage })
       .then(
-        (results) => {
-          this.setState({
-            albums: results,
-            totalResults: results.length
-          });
+        ({ Search, totalResults }) => {
+          this.setState({ movies: Search, totalResults, page });
         },
         err => {
           this.setState({ error: err.message });
@@ -72,8 +81,8 @@ class Results extends Component {
   }
 
   render() {
-    const { albums, loading, error } = this.state;
-    const { page, perPage, totalResults } = this.state;
+    const { movies, loading, error } = this.state;
+    const { perPage, totalResults } = this.state;
     const { searchTerm } = this;
 
     return (
@@ -89,18 +98,19 @@ class Results extends Component {
           <Fragment>
             <p>Searching for &quot;{searchTerm}&quot;</p>
             <Paging
-              page={page}
+              page={+this.searchPage}
               perPage={perPage}
-              totalResults={totalResults}
+              totalResults={parseInt(totalResults)}
               onPage={this.handlePage}
             />
           </Fragment>
         }
-
-        {albums
-          ? <Albums albums={albums}/>
-          : <p>Please enter a search to get started</p>
-        }
+        <div>
+          {movies
+            ? <Movies movies={movies}/>
+            : <p>Please enter a search to get started</p>
+          }
+        </div>
       </section>   
     );
   }

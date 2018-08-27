@@ -1,3 +1,4 @@
+/* eslint no-console: off */
 import React, { Component } from 'react';
 import { getFavorites } from '../../services/favoritesApi';
 import Favorite from './Favorite';
@@ -17,14 +18,16 @@ class Favorites extends Component {
 
   render() {
     const { favorites } = this.state;
-    if(!favorites) return null;
+    if(!favorites) return (<h2>Favorite Movies</h2>);
 
     return (
-      <ul>
-        {favorites.map(favorite => {
-          return <Favorite key={favorite.mbid} album={favorite}/>;
-        })}
-      </ul>
+      <div>
+        <ul>
+          {favorites.map(favorite => {
+            return <Favorite key={favorite.imdbID} movie={favorite}/>;
+          })}
+        </ul>
+      </div>
     );
   }
 }

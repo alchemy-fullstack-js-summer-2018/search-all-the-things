@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './Favorite.css';
 
-export default class Album extends Component {
+export default class Movie extends Component {
 
   static propTypes = {
-    album: PropTypes.object.isRequired
+    movie: PropTypes.object.isRequired
   };
 
   render() {
-    const { album } = this.props;
-    const { name, artist, mbid } = album;
+    const { movie } = this.props;
+    const { imdbID, Title, Poster } = movie;
     return (
-      <li>
-        <Link to={`/albums/${mbid}`}>
-          {name}
-          {artist}
-          {/* <img src={image}/> */}
-        </Link>
-      </li>
+      <div>
+        <li className={styles.favorite}>
+          <Link to={`/movies/${imdbID}`}>
+            <img src={Poster}/>
+            <p><strong>{Title}</strong></p>
+          </Link>
+        </li>
+      </div>
     );
   }
 }

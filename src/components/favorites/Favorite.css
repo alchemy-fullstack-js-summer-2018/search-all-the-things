@@ -1,0 +1,41 @@
+body {
+  background-color: papayawhip;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  
+}
+
+img {
+  margin-right: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  text-shadow: 0px 3px 0px #b2a98f,
+               0px 6px 5px rgba(0,0,0,0.15),
+               0px 5px 2px rgba(0,0,0,0.1),
+               0px 5px 5px rgba(0,0,0,0.1);
+}
+
+.title {
+  font-style: bold;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  
+}
+
+#home-title {
+  text-align: center;
+  color: darkblue;
+  font-size: 20px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
