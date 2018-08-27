@@ -12,7 +12,7 @@ class Header extends Component {
       <div className={styles.header}>  
         <section className="header-container">
           <div className="logo"><img src={logo}/>
-            <h1>Movie Search</h1>
+            <h1>Movie Finder</h1>
           </div> 
           <nav>
             <ul>

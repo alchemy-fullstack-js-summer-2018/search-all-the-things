@@ -7,3 +7,9 @@
   background: #eee;
   padding: 10px;
 }
+
+html, body {
+  margin: 0;
+  // font-family: Bangers, "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+ }
